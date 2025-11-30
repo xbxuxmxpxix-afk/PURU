@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Basics Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: #111;
+            padding: 15px;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #00aaff;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background: #161b22;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4ea1ff;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #1f2630;
+            border-radius: 10px;
+        }
+
+        .question h3 {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            padding: 6px 0;
+            cursor: pointer;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        input[type="radio"] {
+            position: absolute;
+            left: 0;
+            top: 6px;
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+
+        .correct {
+            color: #00ff7f;
+            font-weight: bold;
+        }
+
+        .wrong {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        .icon {
+            font-weight: bold;
+            margin-left: 8px;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #4ea1ff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin: 20px auto;
+            color: white;
+        }
+
+        button:hover {
+            background: #3a8be0;
+        }
+
+        #score {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+</nav>
+
+<div class="container">
+    <h1>🟫 Python Basics Quiz</h1>
+
+    <form id="quizForm">
+
+        <!-- Q1 -->
+        <div class="question">
+            <h3>1. What is the correct extension for Python files?</h3>
+            <label><input type="radio" name="q1" value="wrong"> .pt</label>
+            <label><input type="radio" name="q1" value="correct"> .py</label>
+            <label><input type="radio" name="q1" value="wrong"> .pyt</label>
+            <label><input type="radio" name="q1" value="wrong"> .python</label>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">
+            <h3>2. What function is used to output text in Python?</h3>
+            <label><input type="radio" name="q2" value="wrong"> echo()</label>
+            <label><input type="radio" name="q2" value="correct"> print()</label>
+            <label><input type="radio" name="q2" value="wrong"> out()</label>
+            <label><input type="radio" name="q2" value="wrong"> write()</label>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">
+            <h3>3. Which symbol is used for comments in Python?</h3>
+            <label><input type="radio" name="q3" value="wrong"> //</label>
+            <label><input type="radio" name="q3" value="correct"> #</label>
+            <label><input type="radio" name="q3" value="wrong"> /* */</label>
+            <label><input type="radio" name="q3" value="wrong"> %</label>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question">
+            <h3>4. What is the output of: print(3 + 2 * 2)?</h3>
+            <label><input type="radio" name="q4" value="wrong"> 10</label>
+            <label><input type="radio" name="q4" value="correct"> 7</label>
+            <label><input type="radio" name="q4" value="wrong"> 8</label>
+            <label><input type="radio" name="q4" value="wrong"> 12</label>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question">
+            <h3>5. How do you create a variable in Python?</h3>
+            <label><input type="radio" name="q5" value="correct"> x = 10</label>
+            <label><input type="radio" name="q5" value="wrong"> int x = 10</label>
+            <label><input type="radio" name="q5" value="wrong"> var x = 10</label>
+            <label><input type="radio" name="q5" value="wrong"> let x = 10</label>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question">
+            <h3>6. What data type is "Hello"?</h3>
+            <label><input type="radio" name="q6" value="wrong"> Integer</label>
+            <label><input type="radio" name="q6" value="wrong"> Boolean</label>
+            <label><input type="radio" name="q6" value="correct"> String</label>
+            <label><input type="radio" name="q6" value="wrong"> Float</label>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question">
+            <h3>7. What keyword creates a function?</h3>
+            <label><input type="radio" name="q7" value="wrong"> func</label>
+            <label><input type="radio" name="q7" value="correct"> def</label>
+            <label><input type="radio" name="q7" value="wrong"> function</label>
+            <label><input type="radio" name="q7" value="wrong"> create</label>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question">
+            <h3>8. How do you start a loop?</h3>
+            <label><input type="radio" name="q8" value="wrong"> loop i in 10:</label>
+            <label><input type="radio" name="q8" value="correct"> for i in range(10):</label>
+            <label><input type="radio" name="q8" value="wrong"> repeat 10 times</label>
+            <label><input type="radio" name="q8" value="wrong"> for (i=0; i<10; i++)</label>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question">
+            <h3>9. How do you create a list?</h3>
+            <label><input type="radio" name="q9" value="wrong"> list = (1,2,3)</label>
+            <label><input type="radio" name="q9" value="correct"> list = [1,2,3]</label>
+            <label><input type="radio" name="q9" value="wrong"> list = {1,2,3}</label>
+            <label><input type="radio" name="q9" value="wrong"> list = <1,2,3></label>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question">
+            <h3>10. What is the correct way to check length?</h3>
+            <label><input type="radio" name="q10" value="wrong"> count(list)</label>
+            <label><input type="radio" name="q10" value="wrong"> length(list)</label>
+            <label><input type="radio" name="q10" value="correct"> len(list)</label>
+            <label><input type="radio" name="q10" value="wrong"> size(list)</label>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+
+    <div id="score"></div>
+</div>
+
+<script>
+function checkAnswers() {
+    let score = 0;
+
+    const questions = document.querySelectorAll('.question');
+
+    questions.forEach(q => {
+        const selected = q.querySelector('input[type="radio"]:checked');
+        const labels = q.querySelectorAll("label");
+
+        labels.forEach(l => {
+            l.classList.remove("correct", "wrong");
+            if (l.querySelector("span")) l.querySelector("span").remove();
+        });
+
+        if (selected) {
+            if (selected.value === "correct") {
+                score++;
+
+                const label = selected.parentElement;
+                label.classList.add("correct");
+                label.innerHTML += " <span class='icon'>✔️</span>";
+
+            } else {
+                const label = selected.parentElement;
+                label.classList.add("wrong");
+                label.innerHTML += " <span class='icon'>❌</span>";
+
+                const correctLabel = [...labels].find(l =>
+                    l.querySelector("input").value === "correct"
+                );
+                correctLabel.classList.add("correct");
+                correctLabel.innerHTML += " <span class='icon'>✔️</span>";
+            }
+        }
+    });
+
+    document.getElementById("score").innerHTML =
+        "Your Score: " + score + "/10";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Git & GitHub Quiz</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: white;
+        }
+
+        /* NAVIGATION BAR */
+        nav {
+            width: 100%;
+            background: #161b22;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        nav a {
+            color: white;
+            margin: 0 20px;
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #58a6ff;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #161b22;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #30363d;
+        }
+
+        h1 {
+            text-align: center;
+            color: #58a6ff;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+            margin-bottom: 6px;
+            background: #161b22;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 1px solid #30363d;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.3);
+        }
+
+        /* Correct & Wrong highlight */
+        .correct {
+            border: 2px solid #00ff6a !important;
+            background: rgba(0, 255, 106, 0.1);
+            color: #00ff6a;
+        }
+
+        .wrong {
+            border: 2px solid #ff4747 !important;
+            background: rgba(255, 71, 71, 0.1);
+            color: #ff4747;
+        }
+
+        /* Score Button */
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            background: #238636;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: #2ea043;
+        }
+
+        #score {
+            text-align: center;
+            font-size: 22px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #58a6ff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav>
+        <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+
+    </nav>
+
+    <div class="container">
+        <h1>Git & GitHub Quiz</h1>
+
+        <form id="quizForm">
+
+            <!-- QUESTIONS -->
+            <div class="question">
+                <p>1. What is Git primarily used for?</p>
+                <div class="options">
+                    <label><input type="radio" name="q1" value="Version Control"> Version Control</label>
+                    <label><input type="radio" name="q1" value="Graphic Design"> Graphic Design</label>
+                    <label><input type="radio" name="q1" value="File Compression"> File Compression</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>2. What does “git init” do?</p>
+                <div class="options">
+                    <label><input type="radio" name="q2" value="Creates a new Git repository"> Creates a new Git repository</label>
+                    <label><input type="radio" name="q2" value="Deletes a repository"> Deletes a repository</label>
+                    <label><input type="radio" name="q2" value="Uploads files to GitHub"> Uploads files to GitHub</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>3. What is GitHub?</p>
+                <div class="options">
+                    <label><input type="radio" name="q3" value="A cloud platform for Git repos"> A cloud platform for Git repos</label>
+                    <label><input type="radio" name="q3" value="A text editor"> A text editor</label>
+                    <label><input type="radio" name="q3" value="A programming language"> A programming language</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>4. What does “git clone” do?</p>
+                <div class="options">
+                    <label><input type="radio" name="q4" value="Copies a remote repo locally"> Copies a remote repo locally</label>
+                    <label><input type="radio" name="q4" value="Deletes branches"> Deletes branches</label>
+                    <label><input type="radio" name="q4" value="Runs tests"> Runs tests</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>5. What does ‘commit’ mean?</p>
+                <div class="options">
+                    <label><input type="radio" name="q5" value="Save changes to history"> Save changes to history</label>
+                    <label><input type="radio" name="q5" value="Download files"> Download files</label>
+                    <label><input type="radio" name="q5" value="Upload images"> Upload images</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>6. What is a Git branch?</p>
+                <div class="options">
+                    <label><input type="radio" name="q6" value="A line of development"> A line of development</label>
+                    <label><input type="radio" name="q6" value="A security feature"> A security feature</label>
+                    <label><input type="radio" name="q6" value="A backup server"> A backup server</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>7. What does “git push” do?</p>
+                <div class="options">
+                    <label><input type="radio" name="q7" value="Uploads commits to GitHub"> Uploads commits to GitHub</label>
+                    <label><input type="radio" name="q7" value="Downloads a repository"> Downloads a repository</label>
+                    <label><input type="radio" name="q7" value="Deletes files"> Deletes files</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>8. What is a pull request?</p>
+                <div class="options">
+                    <label><input type="radio" name="q8" value="A request to merge changes"> A request to merge changes</label>
+                    <label><input type="radio" name="q8" value="A request to delete a repo"> A request to delete a repo</label>
+                    <label><input type="radio" name="q8" value="A request to change Git username"> A request to change Git username</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>9. What does “git status” show?</p>
+                <div class="options">
+                    <label><input type="radio" name="q9" value="Current repo state"> Current repo state</label>
+                    <label><input type="radio" name="q9" value="Remote branches only"> Remote branches only</label>
+                    <label><input type="radio" name="q9" value="Installed apps"> Installed apps</label>
+                </div>
+            </div>
+
+            <div class="question">
+                <p>10. What does “git merge” do?</p>
+                <div class="options">
+                    <label><input type="radio" name="q10" value="Combines branches"> Combines branches</label>
+                    <label><input type="radio" name="q10" value="Deletes a repository"> Deletes a repository</label>
+                    <label><input type="radio" name="q10" value="Installs extensions"> Installs extensions</label>
+                </div>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
+
+            <p id="score"></p>
+        </form>
+    </div>
+
+    <script>
+        const answers = {
+            q1: "Version Control",
+            q2: "Creates a new Git repository",
+            q3: "A cloud platform for Git repos",
+            q4: "Copies a remote repo locally",
+            q5: "Save changes to history",
+            q6: "A line of development",
+            q7: "Uploads commits to GitHub",
+            q8: "A request to merge changes",
+            q9: "Current repo state",
+            q10: "Combines branches"
+        };
+
+        function checkAnswers() {
+            let score = 0;
+
+            for (let q in answers) {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                const options = document.querySelectorAll(`input[name="${q}"]`);
+
+                options.forEach(opt => {
+                    opt.parentElement.classList.remove("correct", "wrong");
+                });
+
+                if (selected) {
+                    if (selected.value === answers[q]) {
+                        score++;
+                        selected.parentElement.classList.add("correct");
+                    } else {
+                        selected.parentElement.classList.add("wrong");
+                        options.forEach(opt => {
+                            if (opt.value === answers[q]) {
+                                opt.parentElement.classList.add("correct");
+                            }
+                        });
+                    }
+                }
+            }
+
+            document.getElementById("score").textContent = `Your Score: ${score}/10`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trees & Binary Search Quiz</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+            background-size: 400% 400%;
+            animation: colorfulBG 14s ease infinite;
+            color: #333;
+        }
+
+        @keyframes colorfulBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            display: flex;
+            gap: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #ffe066;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            font-size: 45px;
+        }
+
+        .quiz-card {
+            background: white;
+            padding: 25px;
+            margin: 35px auto;
+            border-radius: 18px;
+            max-width: 900px;
+
+            border-left: 10px solid transparent;
+            background-image: linear-gradient(white, white),
+                linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+        }
+
+        .quiz-card p {
+            font-size: 20px;
+            font-weight: 600;
+            color: #845ef7;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            transform: scale(1.2);
+            margin: 0;
+        }
+
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+
+        .wrong {
+            color: red;
+            font-weight: bold;
+        }
+
+        .correct-circle {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: green;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .wrong-circle {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: red;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        #scoreBox {
+            text-align: center;
+            margin: 25px;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+        }
+
+        #submitBtn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            font-size: 20px;
+            border: none;
+            background: #ffe066;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+</style>
+</head>
+
+<body class="bg-gray-100">
+
+<!-- CENTERED NAVIGATION BAR -->
+<nav class="bg-blue-600 text-white px-6 py-4 shadow-lg">
+  <div class="max-w-6xl mx-auto flex justify-center items-center">
+    <ul class="flex gap-10 text-lg font-semibold">
+      <li> <a href="index.html">Home</a></li>
+    <li>  <a href="courses.html">Courses</a></li>
+   <li>   <a href="quiz.html">Quizzes</a></li>
+   <li>   <a href="about.html">About</a></li>
+   <li>   <a href="admin-login.html">Admin</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- MAIN QUIZ CONTAINER -->
+<div class="max-w-4xl mx-auto mt-10 bg-white p-8 shadow-xl rounded-xl">
+
+  <h2 class="text-3xl font-bold mb-6 text-center text-blue-600">
+    Trees & Binary Search Quiz
+  </h2>
+
+  <form id="quizForm" class="space-y-8"></form>
+
+  <div class="text-center mt-10">
+    <button onclick="checkAnswers()"
+      class="bg-blue-600 text-white px-6 py-3 rounded-lg text-xl font-semibold hover:bg-blue-700 transition">
+      Submit Quiz
+    </button>
+
+    <p id="score" class="mt-6 text-2xl font-bold"></p>
+  </div>
+</div>
+
+<script>
+const questions = [
+  {
+    q: "1. What defines a Binary Search Tree (BST)?",
+    options: [
+      "Every node has exactly 2 children",
+      "Left child < parent < right child",
+      "All nodes have equal values",
+      "Tree is always balanced"
+    ],
+    correct: 1
+  },
+  {
+    q: "2. Which traversal of BST gives sorted output?",
+    options: ["Post-order", "In-order", "Pre-order", "Level-order"],
+    correct: 1
+  },
+  {
+    q: "3. What is the height of a tree?",
+    options: [
+      "Longest path from root to leaf",
+      "Total number of edges",
+      "Total nodes",
+      "Shortest path to root"
+    ],
+    correct: 0
+  },
+  {
+    q: "4. Time complexity of searching in BST (average)?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n²)"],
+    correct: 1
+  },
+  {
+    q: "5. Worst-case height of BST?",
+    options: ["log n", "n", "n log n", "1"],
+    correct: 1
+  },
+  {
+    q: "6. Which is true about full binary tree?",
+    options: [
+      "All nodes have 0 or 2 children",
+      "All leaves at same level",
+      "Every node has 1 child",
+      "Always balanced"
+    ],
+    correct: 0
+  },
+  {
+    q: "7. Root node has height:",
+    options: ["0", "1", "Depends on tree", "Undefined"],
+    correct: 2
+  },
+  {
+    q: "8. Which traversal uses a queue?",
+    options: ["In-order", "Pre-order", "Level-order", "Post-order"],
+    correct: 2
+  },
+  {
+    q: "9. Which is NOT a tree traversal?",
+    options: ["In-order", "Out-order", "Post-order", "Pre-order"],
+    correct: 1
+  },
+  {
+    q: "10. Which operation modifies BST structure the most?",
+    options: ["Search", "Traversal", "Insertion/Deletion", "Printing"],
+    correct: 2
+  }
+];
+
+const form = document.getElementById("quizForm");
+
+questions.forEach((q, i) => {
+  let html = `
+    <div class="p-6 bg-gray-50 rounded-xl shadow">
+      <p class="font-semibold text-lg mb-3">${q.q}</p>
+  `;
+
+  q.options.forEach((opt, idx) => {
+    html += `
+      <label class="flex items-center gap-3 mb-2">
+        <input type="radio" name="q${i}" value="${idx}" class="h-5 w-5">
+        <span class="text-gray-800">${opt}</span>
+      </label>
+    `;
+  });
+
+  html += `</div>`;
+  form.innerHTML += html;
+});
+
+function checkAnswers() {
+  let score = 0;
+
+  questions.forEach((q, i) => {
+    const selected = document.querySelector(`input[name="q${i}"]:checked`);
+
+    const options = document.getElementsByName(`q${i}`);
+
+    options.forEach((opt) => {
+      opt.parentElement.classList.remove("text-green-600", "text-red-600");
+      opt.classList.remove("correct-ring", "wrong-ring");
+    });
+
+    if (selected) {
+      if (parseInt(selected.value) === q.correct) {
+        score++;
+        selected.classList.add("correct-ring");
+        selected.parentElement.classList.add("text-green-600");
+      } else {
+        selected.classList.add("wrong-ring");
+        selected.parentElement.classList.add("text-red-600");
+
+        const correctOpt = options[q.correct];
+        correctOpt.classList.add("correct-ring");
+        correctOpt.parentElement.classList.add("text-green-600");
+      }
+    }
+  });
+
+  document.getElementById("score").innerText = `Your Score: ${score}/10`;
+}
+</script>
+
+</body>
+</html>

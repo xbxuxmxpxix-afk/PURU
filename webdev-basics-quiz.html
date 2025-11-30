@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Development Basics Quiz</title>
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+            background-size: 400% 400%;
+            animation: colorfulBG 14s ease infinite;
+            color: #333;
+        }
+
+        @keyframes colorfulBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #ffe066;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            font-size: 45px;
+        }
+
+        .quiz-card {
+            background: white;
+            padding: 25px;
+            margin: 35px auto;
+            border-radius: 18px;
+            max-width: 900px;
+
+            border-left: 10px solid transparent;
+            background-image: linear-gradient(white, white),
+                linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+        }
+
+        .quiz-card p {
+            font-size: 20px;
+            font-weight: 600;
+            color: #845ef7;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            transform: scale(1.2);
+            margin: 0;
+        }
+
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+
+        .wrong {
+            color: red;
+            font-weight: bold;
+        }
+
+        .correct-circle {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: green;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .wrong-circle {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            background: red;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        #scoreBox {
+            text-align: center;
+            margin: 25px;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+        }
+
+        #submitBtn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            font-size: 20px;
+            border: none;
+            background: #ffe066;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+</nav>
+
+<h1>Web Development Basics Quiz</h1>
+
+<form id="quizForm">
+
+<!-- Questions -->
+<div class="quiz-card">
+    <p>1. What does HTML stand for?</p>
+    <label><input type="radio" name="q1" value="a"> Hyper Trainer Marking Language</label>
+    <label><input type="radio" name="q1" value="b"> Hyper Text Markup Language</label>
+    <label><input type="radio" name="q1" value="c"> High Text Machine Language</label>
+    <label><input type="radio" name="q1" value="d"> Hyper Text Making Line</label>
+</div>
+
+<div class="quiz-card">
+    <p>2. Which tag is used to insert an image in HTML?</p>
+    <label><input type="radio" name="q2" value="a"> &lt;image&gt;</label>
+    <label><input type="radio" name="q2" value="b"> &lt;img&gt;</label>
+    <label><input type="radio" name="q2" value="c"> &lt;pic&gt;</label>
+    <label><input type="radio" name="q2" value="d"> &lt;src&gt;</label>
+</div>
+
+<div class="quiz-card">
+    <p>3. What does CSS stand for?</p>
+    <label><input type="radio" name="q3" value="a"> Creative Style Sheets</label>
+    <label><input type="radio" name="q3" value="b"> Cascading Style Sheets</label>
+    <label><input type="radio" name="q3" value="c"> Computer Style System</label>
+    <label><input type="radio" name="q3" value="d"> Colorful Style Syntax</label>
+</div>
+
+<div class="quiz-card">
+    <p>4. Which property is used to change text color in CSS?</p>
+    <label><input type="radio" name="q4" value="a"> bgcolor</label>
+    <label><input type="radio" name="q4" value="b"> color</label>
+    <label><input type="radio" name="q4" value="c"> font-color</label>
+    <label><input type="radio" name="q4" value="d"> text-color</label>
+</div>
+
+<div class="quiz-card">
+    <p>5. JavaScript is used for:</p>
+    <label><input type="radio" name="q5" value="a"> Structuring web pages</label>
+    <label><input type="radio" name="q5" value="b"> Styling web pages</label>
+    <label><input type="radio" name="q5" value="c"> Adding interactivity</label>
+    <label><input type="radio" name="q5" value="d"> Database management</label>
+</div>
+
+<div class="quiz-card">
+    <p>6. Which HTML tag is used for the largest heading?</p>
+    <label><input type="radio" name="q6" value="a"> &lt;h6&gt;</label>
+    <label><input type="radio" name="q6" value="b"> &lt;heading&gt;</label>
+    <label><input type="radio" name="q6" value="c"> &lt;h1&gt;</label>
+    <label><input type="radio" name="q6" value="d"> &lt;title&gt;</label>
+</div>
+
+<div class="quiz-card">
+    <p>7. Which symbol is used for comments in CSS?</p>
+    <label><input type="radio" name="q7" value="a"> // comment</label>
+    <label><input type="radio" name="q7" value="b"> # comment</label>
+    <label><input type="radio" name="q7" value="c"> /* comment */</label>
+    <label><input type="radio" name="q7" value="d"> &lt;!--comment--&gt;</label>
+</div>
+
+<div class="quiz-card">
+    <p>8. Which JavaScript keyword declares a variable?</p>
+    <label><input type="radio" name="q8" value="a"> int</label>
+    <label><input type="radio" name="q8" value="b"> var</label>
+    <label><input type="radio" name="q8" value="c"> let</label>
+    <label><input type="radio" name="q8" value="d"> Both b & c</label>
+</div>
+
+<div class="quiz-card">
+    <p>9. Which one is NOT a JavaScript data type?</p>
+    <label><input type="radio" name="q9" value="a"> Boolean</label>
+    <label><input type="radio" name="q9" value="b"> Number</label>
+    <label><input type="radio" name="q9" value="c"> Float</label>
+    <label><input type="radio" name="q9" value="d"> String</label>
+</div>
+
+<div class="quiz-card">
+    <p>10. What does the 'href' attribute in HTML specify?</p>
+    <label><input type="radio" name="q10" value="a"> Image path</label>
+    <label><input type="radio" name="q10" value="b"> Link destination</label>
+    <label><input type="radio" name="q10" value="c"> Header reference</label>
+    <label><input type="radio" name="q10" value="d"> HTML formatting</label>
+</div>
+
+</form>
+
+<button id="submitBtn" onclick="checkQuiz()">Submit</button>
+<div id="scoreBox"></div>
+
+<script>
+    const answers = {
+        q1: "b",
+        q2: "b",
+        q3: "b",
+        q4: "b",
+        q5: "c",
+        q6: "c",
+        q7: "c",
+        q8: "d",
+        q9: "c",
+        q10: "b"
+    };
+
+    function checkQuiz() {
+        let score = 0;
+
+        for (let q in answers) {
+            const correct = answers[q];
+            const selected = document.querySelector(`input[name="${q}"]:checked`);
+
+            const options = document.querySelectorAll(`input[name="${q}"]`);
+
+            options.forEach(radio => {
+                const lbl = radio.parentElement;
+                lbl.classList.remove("correct", "wrong");
+
+                const circles = lbl.querySelectorAll(".correct-circle, .wrong-circle");
+                circles.forEach(c => c.remove());
+            });
+
+            if (!selected) continue;
+
+            if (selected.value === correct) {
+                score++;
+                selected.parentElement.classList.add("correct");
+            } else {
+                selected.parentElement.classList.add("wrong");
+                selected.parentElement.insertAdjacentHTML("beforeend",
+                    `<span class='wrong-circle'></span>`);
+
+                const correctOption = document.querySelector(
+                    `input[name="${q}"][value="${correct}"]`
+                );
+                correctOption.parentElement.classList.add("correct");
+                correctOption.parentElement.insertAdjacentHTML("beforeend",
+                    `<span class='correct-circle'></span>`);
+            }
+        }
+
+        document.getElementById("scoreBox").textContent =
+            `Your Score: ${score} / 10`;
+    }
+</script>
+
+</body>
+</html>

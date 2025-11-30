@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Mini Projects Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: #111;
+            padding: 15px;
+            display: flex;
+            gap: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #00aaff;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background: #161b22;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ae7bff;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #1f2630;
+            border-radius: 10px;
+        }
+
+        label {
+            display: block;
+            padding: 6px 0;
+            cursor: pointer;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        input[type="radio"] {
+            position: absolute;
+            left: 0;
+            top: 6px;
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+
+        .correct {
+            color: #00ff7f;
+            font-weight: bold;
+        }
+
+        .wrong {
+            color: #ff4d4d;
+            font-weight: bold;
+        }
+
+        .icon {
+            margin-left: 8px;
+            font-weight: bold;
+        }
+
+        button {
+            padding: 12px 20px;
+            background: #ae7bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
+            margin: 20px auto;
+            color: white;
+        }
+
+        button:hover {
+            background: #965df7;
+        }
+
+        #score {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+</nav>
+
+<div class="container">
+    <h1>🟪 Python Mini Projects Quiz</h1>
+
+    <form id="quizForm">
+
+        <!-- Q1 -->
+        <div class="question">
+            <h3>1. What module is commonly used to build a simple stopwatch project?</h3>
+            <label><input type="radio" name="q1" value="wrong"> datetime</label>
+            <label><input type="radio" name="q1" value="correct"> time</label>
+            <label><input type="radio" name="q1" value="wrong"> math</label>
+            <label><input type="radio" name="q1" value="wrong"> sys</label>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">
+            <h3>2. Which library is best for creating a simple GUI project?</h3>
+            <label><input type="radio" name="q2" value="correct"> tkinter</label>
+            <label><input type="radio" name="q2" value="wrong"> numpy</label>
+            <label><input type="radio" name="q2" value="wrong"> pandas</label>
+            <label><input type="radio" name="q2" value="wrong"> pygame</label>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">
+            <h3>3. Which structure is commonly used in a To-Do List mini project?</h3>
+            <label><input type="radio" name="q3" value="wrong"> set</label>
+            <label><input type="radio" name="q3" value="correct"> list</label>
+            <label><input type="radio" name="q3" value="wrong"> tuple</label>
+            <label><input type="radio" name="q3" value="wrong"> dictionary</label>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question">
+            <h3>4. Which project usually uses random.choice()?</h3>
+            <label><input type="radio" name="q4" value="wrong"> Calculator</label>
+            <label><input type="radio" name="q4" value="correct"> Password Generator</label>
+            <label><input type="radio" name="q4" value="wrong"> BMI Calculator</label>
+            <label><input type="radio" name="q4" value="wrong"> Notepad App</label>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question">
+            <h3>5. What is required for a simple file organizer project?</h3>
+            <label><input type="radio" name="q5" value="correct"> os module</label>
+            <label><input type="radio" name="q5" value="wrong"> math module</label>
+            <label><input type="radio" name="q5" value="wrong"> csv module</label>
+            <label><input type="radio" name="q5" value="wrong"> re module</label>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question">
+            <h3>6. Which library is used to create a quiz game with sounds?</h3>
+            <label><input type="radio" name="q6" value="wrong"> tkinter</label>
+            <label><input type="radio" name="q6" value="correct"> pygame</label>
+            <label><input type="radio" name="q6" value="wrong"> json</label>
+            <label><input type="radio" name="q6" value="wrong"> collections</label>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question">
+            <h3>7. What is the best data type for storing username-password pairs?</h3>
+            <label><input type="radio" name="q7" value="wrong"> list</label>
+            <label><input type="radio" name="q7" value="wrong"> tuple</label>
+            <label><input type="radio" name="q7" value="correct"> dictionary</label>
+            <label><input type="radio" name="q7" value="wrong"> set</label>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question">
+            <h3>8. Which Python module helps build a countdown timer?</h3>
+            <label><input type="radio" name="q8" value="correct"> time</label>
+            <label><input type="radio" name="q8" value="wrong"> json</label>
+            <label><input type="radio" name="q8" value="wrong"> turtle</label>
+            <label><input type="radio" name="q8" value="wrong"> os</label>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question">
+            <h3>9. What does json.load() do in a project?</h3>
+            <label><input type="radio" name="q9" value="wrong"> Converts JSON to a file</label>
+            <label><input type="radio" name="q9" value="correct"> Reads JSON data</label>
+            <label><input type="radio" name="q9" value="wrong"> Writes JSON data</label>
+            <label><input type="radio" name="q9" value="wrong"> Deletes JSON data</label>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question">
+            <h3>10. Which feature is essential in a basic chatbot project?</h3>
+            <label><input type="radio" name="q10" value="wrong"> advanced machine learning</label>
+            <label><input type="radio" name="q10" value="correct"> if-else logic</label>
+            <label><input type="radio" name="q10" value="wrong"> 3D graphics</label>
+            <label><input type="radio" name="q10" value="wrong"> database systems</label>
+        </div>
+
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+
+    <div id="score"></div>
+</div>
+
+<script>
+function checkAnswers() {
+    let score = 0;
+
+    const questions = document.querySelectorAll('.question');
+
+    questions.forEach(q => {
+        const selected = q.querySelector('input[type="radio"]:checked');
+        const labels = q.querySelectorAll("label");
+
+        labels.forEach(l => {
+            l.classList.remove("correct", "wrong");
+            if (l.querySelector("span")) l.querySelector("span").remove();
+        });
+
+        if (selected) {
+            if (selected.value === "correct") {
+                score++;
+
+                const label = selected.parentElement;
+                label.classList.add("correct");
+                label.innerHTML += " <span class='icon'>✔️</span>";
+
+            } else {
+                const label = selected.parentElement;
+                label.classList.add("wrong");
+                label.innerHTML += " <span class='icon'>❌</span>";
+
+                const correctLabel = [...labels].find(l =>
+                    l.querySelector("input").value === "correct"
+                );
+                correctLabel.classList.add("correct");
+                correctLabel.innerHTML += " <span class='icon'>✔️</span>";
+            }
+        }
+    });
+
+    document.getElementById("score").innerHTML =
+        "Your Score: " + score + "/10";
+}
+</script>
+
+</body>
+</html>

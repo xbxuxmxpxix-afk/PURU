@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API & JSON Quiz</title>
+
+<style>
+/* =============================== */
+/* 🌈 GLOBAL SETTINGS & BACKGROUND */
+/* =============================== */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+    background-size: 400% 400%;
+    animation: colorfulBG 14s ease infinite;
+    color: #333;
+}
+
+@keyframes colorfulBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+/* =============================== */
+/* 🔵 NAVIGATION BAR               */
+/* =============================== */
+nav {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    display: flex;
+    justify-content: center; /* CENTERED NAV */
+    gap: 35px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+nav a {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffe066;
+    transform: translateY(-2px);
+}
+
+/* =============================== */
+/* 🟣 QUIZ CARD                    */
+/* =============================== */
+.quiz-card {
+    background: white;
+    padding: 25px;
+    margin: 25px auto;
+    border-radius: 18px;
+    max-width: 900px;
+
+    border-left: 10px solid transparent;
+    background-image: linear-gradient(white, white),
+        linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+.quiz-card p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #845ef7;
+}
+
+.option-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+}
+
+.quiz-card input[type="radio"] {
+    transform: scale(1.3);
+}
+
+/* Correct / Wrong Colors */
+.correct-answer { color: green !important; font-weight: bold; }
+.wrong-answer { color: red !important; font-weight: bold; }
+
+.correct-circle {
+    transform: scale(1.3);
+    accent-color: green !important;
+}
+
+.wrong-circle {
+    transform: scale(1.3);
+    accent-color: red !important;
+}
+
+/* Submit Button */
+button {
+    background: #845ef7;
+    color: white;
+    padding: 14px 22px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #6a4fe0;
+    transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV BAR -->
+<nav>
+   <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+
+</nav>
+
+<h1>API & JSON Quiz</h1>
+
+<form id="quizForm">
+
+<!-- QUESTION TEMPLATE -->
+<script>
+function q(num, question, a, b, c, d, correct) {
+    document.write(`
+        <div class="quiz-card">
+            <p>${num}. ${question}</p>
+
+            <label class="option-container">
+                <input type="radio" name="q${num}" value="a"> ${a}
+            </label>
+
+            <label class="option-container">
+                <input type="radio" name="q${num}" value="b"> ${b}
+            </label>
+
+            <label class="option-container">
+                <input type="radio" name="q${num}" value="c"> ${c}
+            </label>
+
+            <label class="option-container">
+                <input type="radio" name="q${num}" value="d"> ${d}
+            </label>
+
+            <span id="correct-q${num}" style="display:none;">${correct}</span>
+        </div>
+    `);
+}
+</script>
+
+<script>
+q(1, "What does API stand for?",
+   "Application Programming Interface",
+   "Advanced Program Interaction",
+   "Applied Program Internet",
+   "Automated Process Integration",
+   "a");
+
+q(2, "Which format is commonly used for APIs?",
+   "HTML", "JSON", "CSS", "Markdown", "b");
+
+q(3, "Which of the following is valid JSON?",
+   `{ "name": "Alex" }`,
+   `{ name: "Alex" }`,
+   `[ name: Alex ]`,
+   `name = Alex`,
+   "a");
+
+q(4, "What type of data structure is JSON primarily based on?",
+   "Arrays & Objects",
+   "Functions",
+   "HTML Tags",
+   "CSS Selectors",
+   "a");
+
+q(5, "Which HTTP method is used to retrieve data?",
+   "POST", "DELETE", "PUT", "GET", "d");
+
+q(6, "Which HTTP method is used to send data to a server?",
+   "GET", "POST", "OPTIONS", "HEAD", "b");
+
+q(7, "JSON keys must be:",
+   "Single quotes only",
+   "Not required",
+   "Double-quoted strings",
+   "Numbers only",
+   "c");
+
+q(8, "Which of these is a REST API rule?",
+   "Use XML only",
+   "Stateless communication",
+   "Must use Python",
+   "URL must end with '/'",
+   "b");
+
+q(9, "What does a 404 API response mean?",
+   "Access denied",
+   "Server error",
+   "Resource not found",
+   "Request successful",
+   "c");
+
+q(10, "What is JSON's file extension?",
+    ".jsn", ".txt", ".json", ".xml", "c");
+</script>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+</form>
+
+<script>
+function checkQuiz() {
+    for (let i = 1; i <= 10; i++) {
+        let correct = document.getElementById(`correct-q${i}`).innerText;
+        let options = document.getElementsByName(`q${i}`);
+
+        options.forEach(opt => {
+            let label = opt.parentElement;
+
+            if (opt.value === correct) {
+                label.style.color = "green";
+                opt.classList.add("correct-circle");
+            }
+
+            if (opt.checked && opt.value !== correct) {
+                label.style.color = "red";
+                opt.classList.add("wrong-circle");
+            }
+        });
+    }
+
+    alert("Quiz Submitted!");
+}
+</script>
+
+</body>
+</html>

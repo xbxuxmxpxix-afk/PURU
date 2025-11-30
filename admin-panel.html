@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Admin Panel — Teach Coding</title>
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="styles.css">
+
+<style>
+  :root{--bg1:#31527b;--bg2:#403f72;--card:rgba(255,255,255,0.08)}
+
+  body{
+    margin:0;
+    font-family:Inter,Arial;
+    background:linear-gradient(135deg,var(--bg1),var(--bg2));
+    color:#fff;
+    min-height:100vh;
+  }
+
+  /* FIXED NAVBAR */
+  nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 9999;
+    background:rgba(255,255,255,0.06);
+    padding:14px 28px;
+    display:flex;
+    gap:28px;
+    justify-content:center;
+  }
+  nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    font-size:18px;
+  }
+
+  /* content wrapper */
+  .wrap{
+    max-width:1000px;
+    margin:110px auto 40px auto;
+    padding:0 20px;
+  }
+
+  .card{
+    background:var(--card);
+    padding:28px;
+    border-radius:12px;
+  }
+
+  h1{margin:0 0 8px}
+
+  input[type=text], select{
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    margin:8px 0;
+    font-size:15px;
+  }
+
+  button{
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    background:#fff;
+    color:#111;
+    font-weight:700;
+    cursor:pointer;
+    margin-top:8px;
+  }
+  button:hover{
+    opacity:0.9;
+  }
+
+  .msg{
+    color:#9eff9e;
+    margin-top:12px;
+    display:none;
+  }
+
+  .list{margin-top:20px}
+
+  .row{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    padding:10px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.03);
+    margin-bottom:10px;
+  }
+
+  .thumb{
+    width:140px;
+    height:80px;
+    object-fit:cover;
+    border-radius:8px;
+    background:#222;
+  }
+
+  .meta{flex:1}
+
+  .btn-del{
+    background:#ff6b6b;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- FIXED NAVBAR -->
+<nav>
+  <a href="index.html">Home</a>
+  <a href="courses.html">Courses</a>
+  <a href="quiz.html">Quizzes</a>
+  <a href="about.html">About</a>
+  <a href="admin-login.html">Admin</a>
+</nav>
+
+<div class="wrap">
+  <div class="card">
+    <h1>Admin Panel — Upload Video</h1>
+    <p style="opacity:0.9">Paste a YouTube link and select a course. Videos open on YouTube.</p>
+
+    <input id="title" placeholder="Video title">
+    <input id="link" placeholder="YouTube link">
+    <select id="courseSelect">
+      <option value="">Select course</option>
+      <option value="html-web-structure">HTML & Web Structure</option>
+      <option value="css-styling-essentials">CSS Styling Essentials</option>
+      <option value="intro-to-javascript">Intro to JavaScript</option>
+           <option value="modern-css">Modern CSS (Flexbox + Grid)</option>
+      <option value="python-projects">Python Projects</option>
+      <option value="react-development">React.js Development</option>
+      <option value="JAVA">JAVA</option>
+      <option value="data-structures-algorithms">Data Structures & Algorithms</option>
+    </select>
+
+    <button id="saveBtn">Upload Video</button>
+
+    <div id="ok" class="msg">Saved ✔</div>
+
+    <div class="list" id="listArea"></div>
+  </div>
+</div>
+
+<script>
+function extractYouTubeID(url) {
+  if (!url) return null;
+  url = url.trim();
+  const patterns = [
+    /(?:youtube\.com\/watch\?v=|youtube\.com\/watch\?.+&v=)([A-Za-z0-9_-]{6,})/,
+    /(?:youtube\.com\/embed\/)([A-Za-z0-9_-]{6,})/,
+    /(?:youtu\.be\/)([A-Za-z0-9_-]{6,})/,
+    /(?:youtube\.com\/shorts\/)([A-Za-z0-9_-]{6,})/
+  ];
+  for (const p of patterns) {
+    const m = url.match(p);
+    if (m && m[1]) return m[1].split('&')[0];
+  }
+  const q = url.split('v=')[1];
+  if (q) return q.split('&')[0];
+  return null;
+}
+
+function watchUrl(id){ return `https://www.youtube.com/watch?v=${id}`; }
+function thumbMax(id){ return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`; }
+function thumbHq(id){ return `https://img.youtube.com/vi/${id}/hqdefault.jpg`; }
+
+const KEY = 'videos';
+
+function renderList(){
+  const arr = JSON.parse(localStorage.getItem(KEY) || '[]').slice().reverse();
+  const listArea = document.getElementById('listArea');
+  listArea.innerHTML = '';
+
+  if(!arr.length){
+    listArea.innerHTML = '<p style="opacity:0.85">No videos yet.</p>';
+    return;
+  }
+
+  arr.forEach(v=>{
+    const row=document.createElement('div'); row.className='row';
+    const img=document.createElement('img'); img.className='thumb'; img.src=v.thumbMax || v.thumb;
+    img.onerror=()=>img.src=v.thumb;
+
+    const meta=document.createElement('div'); meta.className='meta';
+    meta.innerHTML = `<h4>${v.title}</h4><p>${v.watchUrl} — ${v.course}</p>`;
+
+    const del=document.createElement('button');
+    del.className='btn-del';
+    del.textContent='Delete';
+    del.onclick=()=>{
+      if(confirm("Delete?")){
+        let all = JSON.parse(localStorage.getItem(KEY)||'[]');
+        all = all.filter(x => x.id!==v.id);
+        localStorage.setItem(KEY, JSON.stringify(all));
+        renderList();
+      }
+    };
+
+    row.appendChild(img);
+    row.appendChild(meta);
+    row.appendChild(del);
+    listArea.appendChild(row);
+  });
+}
+
+document.getElementById('saveBtn').onclick = ()=>{
+  const title=document.getElementById('title').value.trim();
+  const link=document.getElementById('link').value.trim();
+  const course=document.getElementById('courseSelect').value;
+
+  if(!title||!link||!course){ alert('Fill all fields.'); return; }
+
+  const id=extractYouTubeID(link);
+  if(!id){ alert('Invalid YouTube link.'); return; }
+
+  const video = {
+    title:title,
+    id:id,
+    watchUrl:watchUrl(id),
+    thumb:thumbHq(id),
+    thumbMax:thumbMax(id),
+    course:course
+  };
+
+  const arr=JSON.parse(localStorage.getItem(KEY)||'[]');
+  arr.push(video);
+  localStorage.setItem(KEY,JSON.stringify(arr));
+
+  const ok=document.getElementById('ok');
+  ok.style.display='block';
+  setTimeout(()=>ok.style.display='none',1600);
+
+  document.getElementById('title').value='';
+  document.getElementById('link').value='';
+  document.getElementById('courseSelect').value='';
+
+  renderList();
+};
+
+renderList();
+</script>
+
+</body>
+</html>

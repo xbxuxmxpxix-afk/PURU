@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debugging & Errors Quiz</title>
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+            background-size: 400% 400%;
+            animation: colorfulBG 14s ease infinite;
+            color: #333;
+        }
+
+        @keyframes colorfulBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            background: rgba(0,0,0,0.35);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffe066;
+            transform: translateY(-2px);
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            font-size: 45px;
+        }
+
+        .quiz-card {
+            background: white;
+            padding: 25px;
+            margin: 25px auto;
+            border-radius: 15px;
+            max-width: 900px;
+            border-left: 10px solid transparent;
+            background-image: linear-gradient(white, white),
+                linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+        }
+
+        .quiz-card p {
+            font-size: 20px;
+            font-weight: 600;
+            color: #845ef7;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            transform: scale(1.2);
+        }
+
+        .correct { color: green; font-weight: bold; }
+        .wrong { color: red; font-weight: bold; }
+
+        .correct-circle, .wrong-circle {
+            height: 14px;
+            width: 14px;
+            border-radius: 50%;
+            margin-left: 10px;
+            display: inline-block;
+        }
+        .correct-circle { background: green; }
+        .wrong-circle { background: red; }
+
+        #submitBtn {
+            display: block;
+            margin: 30px auto;
+            padding: 12px 25px;
+            font-size: 20px;
+            background: #ffe066;
+            border: none;
+            font-weight: 700;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        #scoreBox {
+            text-align: center;
+            font-size: 26px;
+            color: white;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+   <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+
+</nav>
+
+<h1>Debugging & Errors Quiz</h1>
+
+<form id="quizForm"></form>
+
+<button id="submitBtn" onclick="checkQuiz()">Submit</button>
+<div id="scoreBox"></div>
+
+<script>
+function q(num, question, options) {
+    const card = document.createElement("div");
+    card.className = "quiz-card";
+
+    let html = `<p>${num}. ${question}</p>`;
+    options.forEach(opt => {
+        html += `
+            <label>
+                <input type="radio" name="q${num}" value="${opt.value}">
+                ${opt.text}
+            </label>`;
+    });
+
+    card.innerHTML = html;
+    document.getElementById("quizForm").appendChild(card);
+}
+
+q(1, "Which type of error occurs during code execution?", [
+    {value: "a", text: "Syntax Error"},
+    {value: "b", text: "Runtime Error"},
+    {value: "c", text: "Logical Error"},
+    {value: "d", text: "Compilation Error"}
+]);
+
+q(2, "Which tool is commonly used to debug JavaScript in browsers?", [
+    {value: "a", text: "Terminal"},
+    {value: "b", text: "Chrome DevTools"},
+    {value: "c", text: "Notepad"},
+    {value: "d", text: "GitHub"}
+]);
+
+q(3, "Which method prints logs in JavaScript?", [
+    {value: "a", text: "console.show()"},
+    {value: "b", text: "console.print()"},
+    {value: "c", text: "console.log()"},
+    {value: "d", text: "console.output()"}
+]);
+
+q(4, "A logical error is:", [
+    {value: "a", text: "Detected by the compiler"},
+    {value: "b", text: "Detected during execution"},
+    {value: "c", text: "Difficult to identify"},
+    {value: "d", text: "Always fatal"}
+]);
+
+q(5, "What does 'breakpoint' mean?", [
+    {value: "a", text: "A point where code stops for debugging"},
+    {value: "b", text: "A code that breaks your app"},
+    {value: "c", text: "A syntax correction"},
+    {value: "d", text: "A code comment"}
+]);
+
+q(6, "Which error stops the program immediately?", [
+    {value: "a", text: "Warning"},
+    {value: "b", text: "Syntax Error"},
+    {value: "c", text: "Comment Error"},
+    {value: "d", text: "Whitespace Error"}
+]);
+
+q(7, "Which keyword handles exceptions in JavaScript?", [
+    {value: "a", text: "catch"},
+    {value: "b", text: "handle"},
+    {value: "c", text: "recover"},
+    {value: "d", text: "problem"}
+]);
+
+q(8, "Which of these helps identify infinite loops?", [
+    {value: "a", text: "Timers"},
+    {value: "b", text: "Print statements"},
+    {value: "c", text: "Debugger tool"},
+    {value: "d", text: "Keyboard"}
+]);
+
+q(9, "Which is an example of a syntax error?", [
+    {value: "a", text: "Using wrong formula"},
+    {value: "b", text: "Missing bracket"},
+    {value: "c", text: "Wrong output result"},
+    {value: "d", text: "Slow performance"}
+]);
+
+q(10, "Which helps in tracking error occurrences?", [
+    {value: "a", text: "Error logs"},
+    {value: "b", text: "CSS classes"},
+    {value: "c", text: "HTML tags"},
+    {value: "d", text: "Images"}
+]);
+
+const answers = {
+    q1: "b",
+    q2: "b",
+    q3: "c",
+    q4: "c",
+    q5: "a",
+    q6: "b",
+    q7: "a",
+    q8: "c",
+    q9: "b",
+    q10: "a"
+};
+
+function checkQuiz() {
+    let score = 0;
+
+    for (let q in answers) {
+        const correct = answers[q];
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const radios = document.querySelectorAll(`input[name="${q}"]`);
+
+        radios.forEach(r => {
+            const lbl = r.parentElement;
+            lbl.classList.remove("correct", "wrong");
+            lbl.querySelectorAll(".correct-circle, .wrong-circle").forEach(c => c.remove());
+        });
+
+        if (!selected) continue;
+
+        if (selected.value === correct) {
+            score++;
+            selected.parentElement.classList.add("correct");
+            selected.parentElement.insertAdjacentHTML("beforeend", "<span class='correct-circle'></span>");
+        } else {
+            selected.parentElement.classList.add("wrong");
+            selected.parentElement.insertAdjacentHTML("beforeend", "<span class='wrong-circle'></span>");
+
+            const correctOption = document.querySelector(`input[name="${q}"][value="${correct}"]`);
+            correctOption.parentElement.classList.add("correct");
+            correctOption.parentElement.insertAdjacentHTML("beforeend", "<span class='correct-circle'></span>");
+        }
+    }
+
+    document.getElementById("scoreBox").textContent = `Your Score: ${score} / 10`;
+}
+</script>
+
+</body>
+</html>

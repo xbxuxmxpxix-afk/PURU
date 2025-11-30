@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HTML & Web Structure Quiz</title>
+
+<style>
+/* GLOBAL PAGE STYLE */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+    background-size: 400% 400%;
+    animation: colorfulBG 14s ease infinite;
+}
+@keyframes colorfulBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* NAVIGATION BAR */
+nav {
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+nav a {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #ffe066;
+}
+
+/* QUIZ CARD */
+.quiz-card {
+    background: white;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* QUESTIONS */
+.question { margin-bottom: 25px; font-size: 18px; }
+
+.option {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    cursor: pointer;
+    font-size: 17px;
+    user-select: none;
+}
+.option input { display: none; }
+
+.radio-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    transition: 0.2s;
+}
+
+/* show filled circle when user selects */
+.option input:checked + .radio-circle::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #845ef7;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+/* CORRECT / WRONG STATES */
+.correct .radio-circle {
+    border-color: #51cf66 !important;
+}
+.correct .radio-circle::after {
+    content: "";
+    width: 12px; height: 12px;
+    background: #51cf66;
+    border-radius: 50%;
+    position: absolute; top: 3px; left: 3px;
+}
+.correct span { color: #51cf66; font-weight: 600; }
+
+.wrong .radio-circle {
+    border-color: #ff6b6b !important;
+}
+.wrong span { color: #ff6b6b; font-weight: 600; }
+
+/* SUBMIT BUTTON */
+button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 12px 28px;
+    background: #845ef7;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+}
+button:hover {
+    transform: scale(1.04);
+    background: #6a42f5;
+}
+
+/* SCORE BOX */
+#scoreBox {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f8f9ff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    border-left: 6px solid #845ef7;
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+   <a href="index.html">Home</a>
+   <a href="courses.html">Courses</a>
+   <a href="quiz.html">Quizzes</a>
+   <a href="about.html">About</a>
+</nav>
+
+<h1 style="text-align:center; color:white; margin-top:26px">HTML & Web Structure Quiz</h1>
+
+<div class="quiz-card">
+<form id="quizForm">
+<div id="questions"></div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+<div id="scoreBox"></div>
+</form>
+</div>
+
+<script>
+// QUESTIONS: tags are escaped so they show correctly on page
+const questions = [
+    { q:"1. What does HTML stand for?", a:"A",
+      options:{A:"HyperText Markup Language",B:"HighText Machine Language",C:"Hyper Tool Multi Language",D:"Hyperlink Text Madeup Language"}
+    },
+    { q:"2. Which tag defines the main content of a document?", a:"C",
+      options:{A:"&lt;section&gt;",B:"&lt;body&gt;",C:"&lt;main&gt;",D:"&lt;div&gt;"}
+    },
+    { q:"3. Which tag is used for links?", a:"B",
+      options:{A:"&lt;link&gt;",B:"&lt;a&gt;",C:"&lt;href&gt;",D:"&lt;url&gt;"}
+    },
+    { q:"4. Which tag creates a table row?", a:"A",
+      options:{A:"&lt;tr&gt;",B:"&lt;td&gt;",C:"&lt;th&gt;",D:"&lt;row&gt;"}
+    },
+    { q:"5. Which tag(s) are correct for bold text?", a:"C",
+      options:{A:"&lt;strong&gt;",B:"&lt;b&gt;",C:"Both A and B",D:"&lt;bold&gt;"}
+    },
+    { q:"6. Which is the correct HTML5 doctype declaration?", a:"D",
+      options:{A:"&lt;!DOCTYPE HTML5&gt;",B:"&lt;doctype html&gt;",C:"&lt;!DOCTYPE&gt;",D:"&lt;!DOCTYPE html&gt;"}
+    },
+    { q:"7. What tag is used to embed an image?", a:"A",
+      options:{A:"&lt;img&gt;",B:"&lt;image&gt;",C:"&lt;src&gt;",D:"&lt;picture&gt;"}
+    },
+    { q:"8. Which element contains metadata like charset and title?", a:"C",
+      options:{A:"&lt;body&gt;",B:"&lt;header&gt;",C:"&lt;head&gt;",D:"&lt;footer&gt;"}
+    },
+    { q:"9. What does &lt;ul&gt; represent?", a:"B",
+      options:{A:"Underline list",B:"Unordered list",C:"Universal list",D:"User list"}
+    },
+    { q:"10. What is placed inside &lt;title&gt;?", a:"A",
+      options:{A:"The page title shown in the browser tab",B:"Main heading",C:"Footer text",D:"Copyright info"}
+    }
+];
+
+/* Helper to safely insert option text (so escaped entities show) */
+function createOptionHTML(name, value, labelText) {
+    // labelText is already escaped if it contains tags (we provided escaped strings)
+    return `
+      <label class="option">
+        <input type="radio" name="${name}" value="${value}">
+        <div class="radio-circle"></div>
+        <span>${labelText}</span>
+      </label>
+    `;
+}
+
+/* Render questions */
+const container = document.getElementById("questions");
+questions.forEach((item, i) => {
+    let html = `<div class="question" id="q${i}"><p style="margin-bottom:10px">${item.q}</p>`;
+    for (const key of Object.keys(item.options)) {
+        // use createOptionHTML to avoid accidental innerHTML issues
+        html += createOptionHTML(`q${i}`, key, item.options[key]);
+    }
+    html += "</div>";
+    container.innerHTML += html;
+});
+
+/* Submit logic: shows correct/wrong classes and score */
+function submitQuiz() {
+    let score = 0;
+
+    questions.forEach((item, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const correct = item.a;
+        const opts = document.querySelectorAll(`#q${i} .option`);
+
+        opts.forEach(opt => {
+            const val = opt.querySelector("input").value;
+
+            // remove prior states (if user re-submits)
+            opt.classList.remove('correct','wrong');
+
+            if (selected && val === selected.value && val !== correct) {
+                opt.classList.add("wrong");
+            }
+            if (val === correct) {
+                opt.classList.add("correct");
+            }
+        });
+
+        if (selected && selected.value === correct) score++;
+    });
+
+    const box = document.getElementById("scoreBox");
+    box.style.display = "block";
+    box.innerHTML = `Your Score: ${score} / ${questions.length}`;
+
+    // scroll score into view on small screens
+    box.scrollIntoView({behavior:'smooth', block:'center'});
+}
+</script>
+
+</body>
+</html>

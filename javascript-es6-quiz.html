@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern JavaScript (ES6) Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            background: #0b0f19;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        .quiz-container {
+            width: 60%;
+            margin: auto;
+            background: #11182a;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 40px;
+            box-shadow: 0 0 15px #00c6ff;
+        }
+
+        .question {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .options label {
+            display: block;
+            padding: 10px;
+            background: #1a2338;
+            border-radius: 8px;
+            margin: 8px 0;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .correct {
+            background: #1e7f32 !important;
+            border-left: 6px solid #00ff00;
+        }
+
+        .wrong {
+            background: #8b1e1e !important;
+            border-left: 6px solid #ff0000;
+        }
+
+        button {
+            padding: 12px 25px;
+            background: #00aaff;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #0088dd;
+        }
+
+        #result {
+            margin-top: 25px;
+            font-size: 24px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        nav {
+            background: #0a1224;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            font-size: 18px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #00c6ff;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+</nav>
+
+<h1 style="text-align:center; margin-top:25px;">Modern JavaScript (ES6) Quiz</h1>
+
+<div class="quiz-container">
+
+    <form id="quizForm">
+
+        <!-- Q1 -->
+        <div class="question">1. Which ES6 feature allows variables that cannot be reassigned?</div>
+        <div class="options">
+            <label><input type="radio" name="q1" value="let"> let</label>
+            <label><input type="radio" name="q1" value="const"> const</label>
+            <label><input type="radio" name="q1" value="var"> var</label>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">2. Which method converts an array into a string?</div>
+        <div class="options">
+            <label><input type="radio" name="q2" value="map()"> map()</label>
+            <label><input type="radio" name="q2" value="join()"> join()</label>
+            <label><input type="radio" name="q2" value="filter()"> filter()</label>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">3. What does the spread operator (...) do?</div>
+        <div class="options">
+            <label><input type="radio" name="q3" value="Expands arrays"> Expands arrays</label>
+            <label><input type="radio" name="q3" value="Merges objects"> Merges objects</label>
+            <label><input type="radio" name="q3" value="Defines strict mode"> Defines strict mode</label>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question">4. Which is a valid arrow function?</div>
+        <div class="options">
+            <label><input type="radio" name="q4" value="function => {}"> function => {}</label>
+            <label><input type="radio" name="q4" value="() => {}"> () => {}</label>
+            <label><input type="radio" name="q4" value="=> {}"> => {}</label>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question">5. What does `Array.from()` do?</div>
+        <div class="options">
+            <label><input type="radio" name="q5" value="Creates array from iterable"> Creates array from iterable</label>
+            <label><input type="radio" name="q5" value="Sorts array"> Sorts array</label>
+            <label><input type="radio" name="q5" value="Filters array"> Filters array</label>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question">6. What is template literal syntax?</div>
+        <div class="options">
+            <label><input type="radio" name="q6" value="''"> ''</label>
+            <label><input type="radio" name="q6" value="&quot;&quot;"> ""</label>
+            <label><input type="radio" name="q6" value="``"> ``</label>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question">7. Which ES6 feature allows default values in functions?</div>
+        <div class="options">
+            <label><input type="radio" name="q7" value="Default Parameters"> Default Parameters</label>
+            <label><input type="radio" name="q7" value="Hoisting"> Hoisting</label>
+            <label><input type="radio" name="q7" value="Prototype"> Prototype</label>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question">8. Which keyword is used for creating a JavaScript class?</div>
+        <div class="options">
+            <label><input type="radio" name="q8" value="class"> class</label>
+            <label><input type="radio" name="q8" value="object"> object</label>
+            <label><input type="radio" name="q8" value="prototype"> prototype</label>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question">9. What is the purpose of `Promise`?</div>
+        <div class="options">
+            <label><input type="radio" name="q9" value="Handle async operations"> Handle async operations</label>
+            <label><input type="radio" name="q9" value="Store key-value pairs"> Store key-value pairs</label>
+            <label><input type="radio" name="q9" value="Loop through arrays"> Loop through arrays</label>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question">10. Which ES6 method finds the first element satisfying a condition?</div>
+        <div class="options">
+            <label><input type="radio" name="q10" value="find()"> find()</label>
+            <label><input type="radio" name="q10" value="map()"> map()</label>
+            <label><input type="radio" name="q10" value="reduce()"> reduce()</label>
+        </div>
+
+        <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+    </form>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function submitQuiz() {
+    const correct = {
+        q1: "const",
+        q2: "join()",
+        q3: "Expands arrays",
+        q4: "() => {}",
+        q5: "Creates array from iterable",
+        q6: "``",
+        q7: "Default Parameters",
+        q8: "class",
+        q9: "Handle async operations",
+        q10: "find()"
+    };
+
+    let score = 0;
+
+    // Reset previous coloring
+    document.querySelectorAll("label").forEach(label => {
+        label.classList.remove("correct", "wrong");
+    });
+
+    const form = document.getElementById("quizForm");
+
+    for (let q in correct) {
+        const chosen = form[q].value;
+        const options = document.getElementsByName(q);
+
+        options.forEach(option => {
+            if (option.value === correct[q]) {
+                option.parentElement.classList.add("correct");
+            }
+            if (option.checked && option.value !== correct[q]) {
+                option.parentElement.classList.add("wrong");
+            }
+        });
+
+        if (chosen === correct[q]) score++;
+    }
+
+    document.getElementById("result").innerHTML =
+        `<h2>Your Score: ${score} / 10</h2>`;
+}
+</script>
+
+<footer style="text-align:center; margin-top:40px;">
+    <p>© 2025 Teach Coding. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

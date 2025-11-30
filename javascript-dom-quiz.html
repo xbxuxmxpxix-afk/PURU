@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript DOM Quiz</title>
+
+<style>
+/* ===== Website Theme ===== */
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1a1a1a, #000000);
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  background: #111;
+  padding: 15px;
+  text-align: center;
+}
+nav a {
+  color: #00eaff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+}
+nav a:hover {
+  color: #fff;
+}
+
+/* ===== Quiz Container ===== */
+.quiz-container {
+  width: 80%;
+  max-width: 900px;
+  margin: auto;
+  background: #0d0d0d;
+  padding: 25px;
+  margin-top: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px #00eaff;
+}
+
+/* ===== Questions ===== */
+.question {
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #111;
+  border-radius: 10px;
+}
+
+.options label {
+  display: block;
+  margin: 8px 0;
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* Correct highlight */
+.correct {
+  color: #00ff6a !important;
+  font-weight: bold;
+}
+
+/* Wrong highlight */
+.wrong {
+  color: #ff4b4b !important;
+  font-weight: bold;
+}
+
+/* Icons */
+.icon {
+  font-weight: bold;
+  margin-left: 7px;
+}
+
+.correct-icon {
+  color: #00ff6a;
+}
+
+.wrong-icon {
+  color: #ff4b4b;
+}
+
+/* Buttons */
+button {
+  background-color: #00eaff;
+  color: black;
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  margin-top: 10px;
+}
+button:hover {
+  background-color: #0088aa;
+}
+
+#scoreBox {
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #00eaff;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="courses.html">Courses</a>
+  <a href="quiz.html">Quizzes</a>
+  <a href="about.html">About</a>
+  <a href="admin-login.html">Admin</a>
+</nav>
+
+<div class="quiz-container">
+  <h2>JavaScript DOM Quiz</h2>
+
+  <form id="quizForm">
+
+    <!-- QUESTION 1 -->
+    <div class="question">
+      <p>1. What does DOM stand for?</p>
+      <div class="options">
+        <label><input type="radio" name="q1" value="a"> Document Object Model</label>
+        <label><input type="radio" name="q1" value="b"> Data Object Manager</label>
+        <label><input type="radio" name="q1" value="c"> Digital Operational Map</label>
+        <label><input type="radio" name="q1" value="d"> Dynamic Object Module</label>
+      </div>
+    </div>
+
+    <!-- QUESTION 2 -->
+    <div class="question">
+      <p>2. Which method selects an element by its ID?</p>
+      <div class="options">
+        <label><input type="radio" name="q2" value="a"> querySelector()</label>
+        <label><input type="radio" name="q2" value="b"> getElementById()</label>
+        <label><input type="radio" name="q2" value="c"> getElementsByTagName()</label>
+        <label><input type="radio" name="q2" value="d"> getElement()</label>
+      </div>
+    </div>
+
+    <!-- QUESTION 3 -->
+    <div class="question">
+      <p>3. Which method adds a new HTML element to the DOM?</p>
+      <div class="options">
+        <label><input type="radio" name="q3" value="a"> appendChild()</label>
+        <label><input type="radio" name="q3" value="b"> addElement()</label>
+        <label><input type="radio" name="q3" value="c"> push()</label>
+        <label><input type="radio" name="q3" value="d"> insert()</label>
+      </div>
+    </div>
+
+    <!-- QUESTION 4 -->
+    <div class="question">
+      <p>4. Which property changes the text inside an HTML element?</p>
+      <div class="options">
+        <label><input type="radio" name="q4" value="a"> innerHTML</label>
+        <label><input type="radio" name="q4" value="b"> textStyle</label>
+        <label><input type="radio" name="q4" value="c"> htmlValue</label>
+        <label><input type="radio" name="q4" value="d"> setText()</label>
+      </div>
+    </div>
+
+    <!-- QUESTION 5 -->
+    <div class="question">
+      <p>5. Which event fires when a button is clicked?</p>
+      <div class="options">
+        <label><input type="radio" name="q5" value="a"> keyup</label>
+        <label><input type="radio" name="q5" value="b"> click</label>
+        <label><input type="radio" name="q5" value="c"> hover</label>
+        <label><input type="radio" name="q5" value="d"> load</label>
+      </div>
+    </div>
+
+    <!-- QUESTION 6 -->
+    <div class="question">
+      <p>6. Which method removes an element from the DOM?</p>
+      <div class="options">
+        <label><input type="radio" name="q6" value="a"> removeChild()</label>
+        <label><input type="radio" name="q6" value="b"> delete()</label>
+        <label><input type="radio" name="q6" value="c"> removeElement()</label>
+        <label><input type="radio" name="q6" value="d"> destroy()</label>
+      </div>
+    </div>
+
+    <!-- QUESTION 7 -->
+    <div class="question">
+      <p>7. Which method returns the first matching element?</p>
+      <div class="options">
+        <label><input type="radio" name="q7" value="a"> querySelector()</label>
+        <label><input type="radio" name="q7" value="b"> querySelectorAll()</label>
+        <label><input type="radio" name="q7" value="c"> getFirst()</label>
+        <label><input type="radio" name="q7" value="d"> find()</label>
+      </div>
+    </div>
+
+    <!-- QUESTION 8 -->
+    <div class="question">
+      <p>8. Which property changes CSS styles of an element?</p>
+      <div class="options">
+        <label><input type="radio" name="q8" value="a"> style</label>
+        <label><input type="radio" name="q8" value="b"> css()</label>
+        <label><input type="radio" name="q8" value="c"> design</label>
+        <label><input type="radio" name="q8" value="d"> htmlStyle</label>
+      </div>
+    </div>
+
+    <!-- QUESTION 9 -->
+    <div class="question">
+      <p>9. Which event triggers when the page finishes loading?</p>
+      <div class="options">
+        <label><input type="radio" name="q9" value="a"> ready</label>
+        <label><input type="radio" name="q9" value="b"> load</label>
+        <label><input type="radio" name="q9" value="c"> init</label>
+        <label><input type="radio" name="q9" value="d"> start</label>
+      </div>
+    </div>
+
+    <!-- QUESTION 10 -->
+    <div class="question">
+      <p>10. Which DOM collection updates live when elements change?</p>
+      <div class="options">
+        <label><input type="radio" name="q10" value="a"> NodeList</label>
+        <label><input type="radio" name="q10" value="b"> HTMLCollection</label>
+        <label><input type="radio" name="q10" value="c"> Array</label>
+        <label><input type="radio" name="q10" value="d"> DOMList</label>
+      </div>
+    </div>
+
+    <button type="button" onclick="checkAnswers()">Submit</button>
+    <button type="button" onclick="showScore()">Your Score</button>
+  </form>
+
+  <div id="scoreBox"></div>
+
+</div>
+
+<script>
+const answers = {
+  q1: "a",
+  q2: "b",
+  q3: "a",
+  q4: "a",
+  q5: "b",
+  q6: "a",
+  q7: "a",
+  q8: "a",
+  q9: "b",
+  q10: "b"
+};
+
+let score = 0;
+
+function checkAnswers() {
+  score = 0;
+
+  for (let q in answers) {
+    let correct = answers[q];
+    let options = document.getElementsByName(q);
+
+    options.forEach(option => {
+      let label = option.parentElement;
+
+      label.classList.remove("correct", "wrong");
+      label.querySelectorAll(".icon").forEach(i => i.remove());
+
+      if (option.checked) {
+        if (option.value === correct) {
+          score++;
+          label.classList.add("correct");
+          label.innerHTML += ` <span class="icon correct-icon">✔</span>`;
+        } else {
+          label.classList.add("wrong");
+          label.innerHTML += ` <span class="icon wrong-icon">✖</span>`;
+        }
+      }
+
+      if (option.value === correct) {
+        label.classList.add("correct");
+        if (!label.innerHTML.includes("✔"))
+          label.innerHTML += ` <span class="icon correct-icon">✔</span>`;
+      }
+    });
+  }
+}
+
+function showScore() {
+  document.getElementById("scoreBox").innerText = `Your Score: ${score}/10`;
+}
+</script>
+
+</body>
+</html>

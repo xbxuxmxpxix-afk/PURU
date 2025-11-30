@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Java Beginner Quiz</title>
+
+<style>
+
+/* ========================= */
+/* GLOBAL PAGE STYLE */
+/* ========================= */
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+    background-size: 400% 400%;
+    animation: colorfulBG 14s ease infinite;
+}
+@keyframes colorfulBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* ========================= */
+/* NAVIGATION BAR */
+/* ========================= */
+
+nav {
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+nav a {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #ffe066;
+    transform: translateY(-2px);
+}
+
+/* ========================= */
+/* QUIZ CARD */
+/* ========================= */
+
+.quiz-card {
+    background: white;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    animation: fadeInUp 0.6s ease forwards;
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: 30px;
+}
+
+/* ========================= */
+/* QUESTIONS */
+/* ========================= */
+
+.question {
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    cursor: pointer;
+    font-size: 17px;
+    user-select: none;
+}
+
+.option input { display: none; }
+
+.radio-circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    transition: 0.3s;
+}
+
+.option input:checked + .radio-circle::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #845ef7;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+
+/* ========================= */
+/* RIGHT & WRONG COLORS */
+/* ========================= */
+
+.correct .radio-circle {
+    border-color: #51cf66 !important;
+}
+.correct .radio-circle::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #51cf66 !important;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+}
+.correct span {
+    color: #51cf66 !important;
+    font-weight: 600;
+}
+
+.wrong .radio-circle {
+    border-color: #ff6b6b !important;
+}
+.wrong span {
+    color: #ff6b6b !important;
+    font-weight: 600;
+}
+
+/* ========================= */
+/* SUBMIT BUTTON */
+/* ========================= */
+
+button {
+    display: block;
+    margin: 30px auto 0 auto;
+    padding: 12px 28px;
+    background: #845ef7;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover {
+    transform: scale(1.08);
+    background: #6a42f5;
+}
+
+/* ========================= */
+/* SCORE BOX */
+/* ========================= */
+
+#scoreBox {
+    margin-top: 25px;
+    padding: 15px;
+    background: #f8f9ff;
+    border-radius: 12px;
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    border-left: 6px solid #845ef7;
+    display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav>
+   <a href="index.html">Home</a>
+   <a href="courses.html">Courses</a>
+   <a href="quiz.html">Quizzes</a>
+   <a href="about.html">About</a>
+</nav>
+
+<h1>Java Beginner Quiz</h1>
+
+<div class="quiz-card">
+<form id="quizForm">
+
+<div id="questions"></div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+
+<div id="scoreBox"></div>
+
+</form>
+</div>
+
+<script>
+const questions = [
+    { q:"1. Which keyword is used to define a class in Java?", a:"A",
+      options:{A:"class",B:"define",C:"struct",D:"object"}
+    },
+    { q:"2. Which method is the entry point of a Java program?", a:"C",
+      options:{A:"start()",B:"run()",C:"main()",D:"init()"}
+    },
+    { q:"3. Java code is compiled into ___", a:"B",
+      options:{A:"Machine code",B:"Bytecode",C:"Binary script",D:"Assembler code"}
+    },
+    { q:"4. Which data type is used for decimal numbers?", a:"D",
+      options:{A:"int",B:"char",C:"boolean",D:"double"}
+    },
+    { q:"5. What does JVM stand for?", a:"C",
+      options:{A:"Java Version Module",B:"Java Visual Manager",C:"Java Virtual Machine",D:"Java Variable Model"}
+    },
+    { q:"6. Which symbol begins a single-line comment?", a:"A",
+      options:{A:"//",B:"/*",C:"#",D:"--"}
+    },
+    { q:"7. Which keyword is used to create an object?", a:"B",
+      options:{A:"create",B:"new",C:"object",D:"make"}
+    },
+    { q:"8. Which of the following is NOT a Java primitive type?", a:"D",
+      options:{A:"int",B:"float",C:"char",D:"String"}
+    },
+    { q:"9. What is the extension of compiled Java bytecode?", a:"C",
+      options:{A:".java",B:".txt",C:".class",D:".jar"}
+    },
+    { q:"10. Which loop always executes at least once?", a:"B",
+      options:{A:"while",B:"do-while",C:"for",D:"foreach"}
+    }
+];
+
+/* Render questions */
+const container = document.getElementById("questions");
+questions.forEach((item, i) => {
+    let html = `<div class="question" id="q${i}"><p>${item.q}</p>`;
+    for (const key in item.options) {
+        html += `
+            <label class="option">
+                <input type="radio" name="q${i}" value="${key}">
+                <div class="radio-circle"></div>
+                <span>${item.options[key]}</span>
+            </label>`;
+    }
+    html += "</div>";
+    container.innerHTML += html;
+});
+
+/* Submit */
+function submitQuiz() {
+    let score = 0;
+
+    questions.forEach((item, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const correct = item.a;
+        const opts = document.querySelectorAll(`#q${i} .option`);
+
+        opts.forEach(opt => {
+            const val = opt.querySelector("input").value;
+
+            if (selected && val === selected.value && val !== correct) {
+                opt.classList.add("wrong");
+            }
+            if (val === correct) {
+                opt.classList.add("correct");
+            }
+        });
+
+        if (selected && selected.value === correct) score++;
+    });
+
+    const box = document.getElementById("scoreBox");
+    box.style.display = "block";
+    box.innerHTML = `Your Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>

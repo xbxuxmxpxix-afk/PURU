@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Structures Beginner Quiz</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: white;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background: #161b22;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #30363d;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            color: #58a6ff;
+        }
+
+        /* QUIZ CARD */
+        .quiz-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #161b22;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #30363d;
+        }
+
+        .question {
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        input[type="radio"] {
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+
+        .correct {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .wrong {
+            color: #ff4c4c;
+            font-weight: bold;
+        }
+
+        .score-box {
+            margin-top: 25px;
+            font-size: 20px;
+            padding: 15px;
+            background: #0d1117;
+            border: 2px solid #30363d;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #238636;
+            border: none;
+            font-size: 18px;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #2ea043;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV BAR -->
+    <div class="navbar">
+        <div class="nav-left">
+             <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+        </div>
+    </div>
+
+    <!-- QUIZ BOX -->
+    <div class="quiz-container">
+        <h2>🟤 Data Structures Beginner Quiz</h2>
+
+        <form id="quizForm">
+
+            <!-- QUESTIONS -->
+
+            <div class="question">1. Which data structure uses FIFO (First In First Out)?</div>
+            <label class="option-label"><input type="radio" name="q1" value="Stack">Stack</label>
+            <label class="option-label"><input type="radio" name="q1" value="Queue">Queue</label>
+            <label class="option-label"><input type="radio" name="q1" value="Tree">Tree</label>
+            <label class="option-label"><input type="radio" name="q1" value="Graph">Graph</label>
+
+            <div class="question">2. What is the basic unit of a linked list?</div>
+            <label class="option-label"><input type="radio" name="q2" value="Node">Node</label>
+            <label class="option-label"><input type="radio" name="q2" value="Element">Element</label>
+            <label class="option-label"><input type="radio" name="q2" value="Block">Block</label>
+            <label class="option-label"><input type="radio" name="q2" value="Cell">Cell</label>
+
+            <div class="question">3. Which data structure uses LIFO (Last In First Out)?</div>
+            <label class="option-label"><input type="radio" name="q3" value="Stack">Stack</label>
+            <label class="option-label"><input type="radio" name="q3" value="Queue">Queue</label>
+            <label class="option-label"><input type="radio" name="q3" value="Array">Array</label>
+            <label class="option-label"><input type="radio" name="q3" value="Heap">Heap</label>
+
+            <div class="question">4. An array stores elements of __________.</div>
+            <label class="option-label"><input type="radio" name="q4" value="Same type">Same type</label>
+            <label class="option-label"><input type="radio" name="q4" value="Different types">Different types</label>
+            <label class="option-label"><input type="radio" name="q4" value="Only strings">Only strings</label>
+            <label class="option-label"><input type="radio" name="q4" value="Only numbers">Only numbers</label>
+
+            <div class="question">5. Which data structure is best for hierarchical data?</div>
+            <label class="option-label"><input type="radio" name="q5" value="Tree">Tree</label>
+            <label class="option-label"><input type="radio" name="q5" value="Stack">Stack</label>
+            <label class="option-label"><input type="radio" name="q5" value="Queue">Queue</label>
+            <label class="option-label"><input type="radio" name="q5" value="Array">Array</label>
+
+            <div class="question">6. What does each node contain in a linked list?</div>
+            <label class="option-label"><input type="radio" name="q6" value="Data & address">Data & address</label>
+            <label class="option-label"><input type="radio" name="q6" value="Only data">Only data</label>
+            <label class="option-label"><input type="radio" name="q6" value="Only address">Only address</label>
+            <label class="option-label"><input type="radio" name="q6" value="Nothing">Nothing</label>
+
+            <div class="question">7. A binary tree node has a maximum of how many children?</div>
+            <label class="option-label"><input type="radio" name="q7" value="2">2</label>
+            <label class="option-label"><input type="radio" name="q7" value="3">3</label>
+            <label class="option-label"><input type="radio" name="q7" value="4">4</label>
+            <label class="option-label"><input type="radio" name="q7" value="5">5</label>
+
+            <div class="question">8. Which traversal method visits left → root → right?</div>
+            <label class="option-label"><input type="radio" name="q8" value="Inorder">Inorder</label>
+            <label class="option-label"><input type="radio" name="q8" value="Preorder">Preorder</label>
+            <label class="option-label"><input type="radio" name="q8" value="Postorder">Postorder</label>
+            <label class="option-label"><input type="radio" name="q8" value="Level order">Level order</label>
+
+            <div class="question">9. Which structure stores key-value pairs?</div>
+            <label class="option-label"><input type="radio" name="q9" value="Hash Map">Hash Map</label>
+            <label class="option-label"><input type="radio" name="q9" value="Array">Array</label>
+            <label class="option-label"><input type="radio" name="q9" value="Stack">Stack</label>
+            <label class="option-label"><input type="radio" name="q9" value="Queue">Queue</label>
+
+            <div class="question">10. Which data structure is linear?</div>
+            <label class="option-label"><input type="radio" name="q10" value="Array">Array</label>
+            <label class="option-label"><input type="radio" name="q10" value="Tree">Tree</label>
+            <label class="option-label"><input type="radio" name="q10" value="Graph">Graph</label>
+            <label class="option-label"><input type="radio" name="q10" value="Heap">Heap</label>
+
+            <button type="button" class="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
+        </form>
+
+        <div id="score" class="score-box"></div>
+
+    </div>
+
+    <script>
+        const answers = {
+            q1: "Queue",
+            q2: "Node",
+            q3: "Stack",
+            q4: "Same type",
+            q5: "Tree",
+            q6: "Data & address",
+            q7: "2",
+            q8: "Inorder",
+            q9: "Hash Map",
+            q10: "Array"
+        };
+
+        function checkAnswers() {
+            let score = 0;
+
+            for (let q in answers) {
+                let selected = document.querySelector(`input[name="${q}"]:checked`);
+
+                let options = document.querySelectorAll(`input[name="${q}"]`);
+
+                options.forEach(opt => {
+                    let label = opt.parentElement;
+                    label.classList.remove("correct", "wrong");
+                });
+
+                if (!selected) continue;
+
+                let correctValue = answers[q];
+
+                options.forEach(opt => {
+                    if (opt.value === correctValue) {
+                        opt.parentElement.classList.add("correct");
+                    }
+                });
+
+                if (selected.value !== correctValue) {
+                    selected.parentElement.classList.add("wrong");
+                } else {
+                    score++;
+                }
+            }
+
+            document.getElementById("score").innerHTML =
+                `Your Score: <b>${score}/10</b>`;
+        }
+    </script>
+
+</body>
+</html>

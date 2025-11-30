@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Linked List Quiz</title>
+
+    <style>
+        body { margin:0; font-family:Arial; background:#0d1117; color:white; }
+
+        .navbar {
+            background:#161b22; padding:15px 25px;
+            display:flex; gap:20px; border-bottom:2px solid #30363d;
+        }
+        .navbar a { color:white; text-decoration:none; font-size:18px; }
+        .navbar a:hover { color:#58a6ff; }
+
+        .quiz-container {
+            max-width:800px; margin:40px auto; background:#161b22;
+            padding:25px; border-radius:10px; border:2px solid #30363d;
+        }
+
+        .question { font-size:22px; margin-bottom:12px; font-weight:bold; }
+
+        .option-label {
+            display:flex; align-items:center; gap:12px;
+            font-size:18px; margin:10px 0; cursor:pointer;
+        }
+
+        input[type="radio"] { transform:scale(1.3); cursor:pointer; }
+
+        .correct { color:#4CAF50; font-weight:bold; }
+        .wrong { color:#ff4c4c; font-weight:bold; }
+
+        .submit-btn {
+            padding:12px 20px; background:#238636; border:none;
+            border-radius:8px; font-size:18px; color:white; cursor:pointer;
+            margin-top:20px;
+        }
+
+        .submit-btn:hover { background:#2ea043; }
+
+        .score-box {
+            margin-top:25px; padding:15px; text-align:center; font-size:20px;
+            border:2px solid #30363d; border-radius:8px; background:#0d1117;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+     <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+</div>
+
+<div class="quiz-container">
+    <h2>⚫ Linked List Quiz</h2>
+    
+    <form id="quizForm">
+
+        <div class="question">1. A linked list consists of:</div>
+        <label class="option-label"><input type="radio" name="q1" value="Nodes">Nodes</label>
+        <label class="option-label"><input type="radio" name="q1" value="Arrays">Arrays</label>
+        <label class="option-label"><input type="radio" name="q1" value="Stacks">Stacks</label>
+        <label class="option-label"><input type="radio" name="q1" value="Objects">Objects</label>
+
+        <div class="question">2. The last node of a linked list points to:</div>
+        <label class="option-label"><input type="radio" name="q2" value="NULL">NULL</label>
+        <label class="option-label"><input type="radio" name="q2" value="Head">Head</label>
+        <label class="option-label"><input type="radio" name="q2" value="Middle">Middle</label>
+        <label class="option-label"><input type="radio" name="q2" value="Random">Random</label>
+
+        <div class="question">3. Which linked list allows traversal in both directions?</div>
+        <label class="option-label"><input type="radio" name="q3" value="Doubly">Doubly</label>
+        <label class="option-label"><input type="radio" name="q3" value="Singly">Singly</label>
+        <label class="option-label"><input type="radio" name="q3" value="Circular">Circular</label>
+        <label class="option-label"><input type="radio" name="q3" value="Binary">Binary</label>
+
+        <div class="question">4. Insertion at the beginning of a linked list is:</div>
+        <label class="option-label"><input type="radio" name="q4" value="O(1)">O(1)</label>
+        <label class="option-label"><input type="radio" name="q4" value="O(n)">O(n)</label>
+        <label class="option-label"><input type="radio" name="q4" value="O(log n)">O(log n)</label>
+        <label class="option-label"><input type="radio" name="q4" value="O(n log n)">O(n log n)</label>
+
+        <div class="question">5. Searching in a linked list takes:</div>
+        <label class="option-label"><input type="radio" name="q5" value="O(n)">O(n)</label>
+        <label class="option-label"><input type="radio" name="q5" value="O(1)">O(1)</label>
+        <label class="option-label"><input type="radio" name="q5" value="O(log n)">O(log n)</label>
+        <label class="option-label"><input type="radio" name="q5" value="O(n^2)">O(n²)</label>
+
+        <div class="question">6. Which linked list connects the last node back to the first?</div>
+        <label class="option-label"><input type="radio" name="q6" value="Circular">Circular</label>
+        <label class="option-label"><input type="radio" name="q6" value="Singly">Singly</label>
+        <label class="option-label"><input type="radio" name="q6" value="Doubly">Doubly</label>
+        <label class="option-label"><input type="radio" name="q6" value="Binary">Binary</label>
+
+        <div class="question">7. Which node is the starting point of a linked list?</div>
+        <label class="option-label"><input type="radio" name="q7" value="Head">Head</label>
+        <label class="option-label"><input type="radio" name="q7" value="Tail">Tail</label>
+        <label class="option-label"><input type="radio" name="q7" value="Root">Root</label>
+        <label class="option-label"><input type="radio" name="q7" value="Front">Front</label>
+
+        <div class="question">8. Deleting a node in a linked list requires:</div>
+        <label class="option-label"><input type="radio" name="q8" value="Pointer update">Pointer update</label>
+        <label class="option-label"><input type="radio" name="q8" value="Shift elements">Shift elements</label>
+        <label class="option-label"><input type="radio" name="q8" value="Resize">Resize</label>
+        <label class="option-label"><input type="radio" name="q8" value="Rebuild">Rebuild</label>
+
+        <div class="question">9. What does each node in a singly linked list store?</div>
+        <label class="option-label"><input type="radio" name="q9" value="Data+Next">Data + Next</label>
+        <label class="option-label"><input type="radio" name="q9" value="Data+Prev">Data + Prev</label>
+        <label class="option-label"><input type="radio" name="q9" value="Index">Index</label>
+        <label class="option-label"><input type="radio" name="q9" value="Two Pointers">Two Pointers</label>
+
+        <div class="question">10. Which is an advantage of linked lists?</div>
+        <label class="option-label"><input type="radio" name="q10" value="Dynamic size">Dynamic size</label>
+        <label class="option-label"><input type="radio" name="q10" value="Random access">Random access</label>
+        <label class="option-label"><input type="radio" name="q10" value="Fast search">Fast search</label>
+        <label class="option-label"><input type="radio" name="q10" value="Fixed size">Fixed size</label>
+
+        <button type="button" class="submit-btn" onclick="check()">Submit</button>
+    </form>
+
+    <div id="score" class="score-box"></div>
+</div>
+
+<script>
+    const ans = {
+        q1:"Nodes", q2:"NULL", q3:"Doubly", q4:"O(1)", q5:"O(n)",
+        q6:"Circular", q7:"Head", q8:"Pointer update", q9:"Data+Next", q10:"Dynamic size"
+    };
+
+    function check() {
+        let score = 0;
+
+        for (let q in ans) {
+            const correct = ans[q];
+            const options = document.querySelectorAll(`input[name="${q}"]`);
+
+            options.forEach(o => o.parentElement.classList.remove("correct","wrong"));
+
+            let selected = document.querySelector(`input[name="${q}"]:checked`);
+
+            options.forEach(o => {
+                if (o.value === correct) o.parentElement.classList.add("correct");
+            });
+
+            if (selected && selected.value === correct) {
+                score++;
+            } else if (selected) {
+                selected.parentElement.classList.add("wrong");
+            }
+        }
+
+        document.getElementById("score").innerHTML = `Your Score: <b>${score}/10</b>`;
+    }
+</script>
+
+</body>
+</html>

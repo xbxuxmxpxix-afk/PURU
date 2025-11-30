@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Videos</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<h1>Admin Video Upload</h1>
+<p>Only you can access this page using its secret URL.</p>
+
+<input type="text" id="youtubeUrl" placeholder="Paste YouTube URL">
+<button onclick="saveVideo()">Add Video</button>
+
+<script>
+function saveVideo() {
+    const url = document.getElementById("youtubeUrl").value;
+    const match = url.match(/(?:youtu\.be\/|v=|embed\/)([\w-]{11})/);
+
+    if (!match) {
+        alert("Invalid YouTube URL");
+        return;
+    }
+
+    const embed = `https://www.youtube.com/embed/${match[1]}`;
+
+    let videos = JSON.parse(localStorage.getItem("videos")) || [];
+    videos.push(embed);
+    localStorage.setItem("videos", JSON.stringify(videos));
+
+    alert("Video added!");
+}
+</script>
+
+</body>
+</html>

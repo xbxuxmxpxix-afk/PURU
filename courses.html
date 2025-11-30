@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Teach Coding - Courses</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        /* NAV and page styles kept consistent with your theme */
+        nav {
+            background: linear-gradient(90deg, #3b5998, #355389, #304c80);
+            padding: 15px 30px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        nav a { color: white; font-size: 22px; font-weight: bold; text-decoration: none; }
+        nav a:hover { opacity: 0.7; }
+        body {
+            background: linear-gradient(135deg, #5595ff, #4c8bff, #3e7fff);
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        .uploaded-videos { margin-top: 60px; padding: 20px; }
+        .uploaded-videos h2 { font-size: 36px; font-weight: 800; margin-bottom: 5px;
+            background: linear-gradient(90deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+            -webkit-background-clip: text; color: transparent; }
+        .neon-line { height: 6px; width: 250px; margin: 0 auto 20px auto; border-radius: 20px;
+            background: linear-gradient(90deg, #ff6bcb, #845ef7, #4dabf7, #51cf66); }
+
+        /* Course card area (keeps your original cards) */
+        .course-section { max-width:1100px; margin:40px auto; text-align:left; padding:0 20px; }
+        .course-card { background: white; color: black; padding: 20px; margin: 16px 0; border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.08); cursor: pointer; }
+        .course-card h3 { color: #845ef7; margin-top:0; }
+
+        /* small grid for uploaded-video placeholder (we removed the 'videos will appear here' but keep a section header) */
+        #videoGrid { display:flex; flex-wrap:wrap; gap:20px; justify-content:center; margin-top:24px; }
+
+        footer { margin-top: 60px; padding: 20px; font-size: 18px; opacity: 0.8; }
+
+        /* Link style for course cards */
+        .course-link { text-decoration: none; display:block; }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+</nav>
+
+<h1 style="margin-top:28px;">Explore All Coding Courses</h1>
+<p style="opacity:0.9;">Choose from beginner, intermediate, and advanced programming courses curated for all learning levels.</p>
+
+<!-- Course cards (unchanged visually) -->
+<section class="course-section" id="coursesArea">
+    <h2>Beginner Level Courses</h2>
+
+    <a class="course-link" href="course.html?course=html-web-structure">
+    <div class="course-card">
+        <h3>HTML & Web Structure</h3>
+        <p>Learn the building blocks of the web and build your first webpage.</p>
+    </div>
+    </a>
+
+    <a class="course-link" href="course.html?course=css-styling-essentials">
+    <div class="course-card">
+        <h3>CSS Styling Essentials</h3>
+        <p>Master layout, colors, fonts, Flexbox, and responsive design.</p>
+    </div>
+    </a>
+
+    <a class="course-link" href="course.html?course=intro-to-javascript">
+    <div class="course-card">
+        <h3>Intro to JavaScript</h3>
+        <p>Variables, functions, DOM basics, and events.</p>
+    </div>
+    </a>
+</section>
+
+<section class="course-section" >
+    <h2>Intermediate Courses</h2>
+
+    <a class="course-link" href="course.html?course=modern-css">
+    <div class="course-card">
+        <h3>Modern CSS (Flexbox + Grid)</h3>
+        <p>Advanced layouts, animations, and UI design patterns.</p>
+    </div>
+    </a>
+
+    <a class="course-link" href="course.html?course=python-projects">
+    <div class="course-card">
+        <h3>Python Projects</h3>
+        <p>Build calculators, games, automation tools, and apps.</p>
+    </div>
+    </a>
+</section>
+
+<section class="course-section">
+    <h2>Advanced Courses</h2>
+
+    <a class="course-link" href="course.html?course=react-development">
+    <div class="course-card">
+        <h3>React.js Development</h3>
+        <p>Build scalable UI components and full applications.</p>
+    </div>
+    </a>
+
+    <a class="course-link" href="course.html?course=JAVA">
+    <div class="course-card">
+        <h3>JAVA </h3>
+        <p>Build your own apps,games,applications.</p>
+    </a></div>
+
+    <a class="course-link" href="course.html?course=data-structures-algorithms">
+    <div class="course-card">
+        <h3>Data Structures & Algorithms</h3>
+        <p>Master logic, speed, and problem-solving skills.</p>
+    </div>
+    </a>
+</section>
+
+<!-- We removed the old "Your Uploaded Videos will appear here" block.
+     Instead, videos are now shown per-course on course.html pages. -->
+
+<footer>
+    © 2025 Teach Coding. Empowering the next generation of programmers.
+</footer>
+
+</body>
+</html>

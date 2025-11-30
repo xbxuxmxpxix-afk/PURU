@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stack & Queue Quiz</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0d1117;
+            color: white;
+        }
+
+        /* NAV BAR */
+        .navbar {
+            background: #161b22;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 2px solid #30363d;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            color: #58a6ff;
+        }
+
+        /* QUIZ CARD */
+        .quiz-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #161b22;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #30363d;
+        }
+
+        .question {
+            font-size: 22px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+
+        .option-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 10px 0;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+
+        .correct {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+
+        .wrong {
+            color: #ff4c4c;
+            font-weight: bold;
+        }
+
+        .submit-btn {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #238636;
+            border: none;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .submit-btn:hover {
+            background: #2ea043;
+        }
+
+        .score-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: #0d1117;
+            border-radius: 8px;
+            border: 2px solid #30363d;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <div class="navbar">
+        <div class="nav-left">
+             <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+        </div>
+    </div>
+
+    <!-- QUIZ BODY -->
+    <div class="quiz-container">
+        <h2>⚪ Stack & Queue Quiz</h2>
+
+        <form id="quizForm">
+
+            <!-- QUESTIONS START -->
+
+            <div class="question">1. A stack follows which principle?</div>
+            <label class="option-label"><input type="radio" name="q1" value="LIFO">LIFO</label>
+            <label class="option-label"><input type="radio" name="q1" value="FIFO">FIFO</label>
+            <label class="option-label"><input type="radio" name="q1" value="Random">Random</label>
+            <label class="option-label"><input type="radio" name="q1" value="None">None</label>
+
+            <div class="question">2. A queue follows which principle?</div>
+            <label class="option-label"><input type="radio" name="q2" value="FIFO">FIFO</label>
+            <label class="option-label"><input type="radio" name="q2" value="LIFO">LIFO</label>
+            <label class="option-label"><input type="radio" name="q2" value="Circular">Circular</label>
+            <label class="option-label"><input type="radio" name="q2" value="Random">Random</label>
+
+            <div class="question">3. Which operation removes an item from a stack?</div>
+            <label class="option-label"><input type="radio" name="q3" value="Pop">Pop</label>
+            <label class="option-label"><input type="radio" name="q3" value="Push">Push</label>
+            <label class="option-label"><input type="radio" name="q3" value="Enqueue">Enqueue</label>
+            <label class="option-label"><input type="radio" name="q3" value="Dequeue">Dequeue</label>
+
+            <div class="question">4. Which operation adds an element to a queue?</div>
+            <label class="option-label"><input type="radio" name="q4" value="Enqueue">Enqueue</label>
+            <label class="option-label"><input type="radio" name="q4" value="Push">Push</label>
+            <label class="option-label"><input type="radio" name="q4" value="Pop">Pop</label>
+            <label class="option-label"><input type="radio" name="q4" value="Remove">Remove</label>
+
+            <div class="question">5. Which operation adds an element to a stack?</div>
+            <label class="option-label"><input type="radio" name="q5" value="Push">Push</label>
+            <label class="option-label"><input type="radio" name="q5" value="Pop">Pop</label>
+            <label class="option-label"><input type="radio" name="q5" value="Enqueue">Enqueue</label>
+            <label class="option-label"><input type="radio" name="q5" value="Insert">Insert</label>
+
+            <div class="question">6. What happens when you Pop from an empty stack?</div>
+            <label class="option-label"><input type="radio" name="q6" value="Underflow">Underflow</label>
+            <label class="option-label"><input type="radio" name="q6" value="Overflow">Overflow</label>
+            <label class="option-label"><input type="radio" name="q6" value="Nothing">Nothing</label>
+            <label class="option-label"><input type="radio" name="q6" value="Error">Error</label>
+
+            <div class="question">7. What happens when you Enqueue into a full queue?</div>
+            <label class="option-label"><input type="radio" name="q7" value="Overflow">Overflow</label>
+            <label class="option-label"><input type="radio" name="q7" value="Underflow">Underflow</label>
+            <label class="option-label"><input type="radio" name="q7" value="Nothing">Nothing</label>
+            <label class="option-label"><input type="radio" name="q7" value="Remove">Remove</label>
+
+            <div class="question">8. The "front" of a queue is used for:</div>
+            <label class="option-label"><input type="radio" name="q8" value="Dequeue">Dequeue</label>
+            <label class="option-label"><input type="radio" name="q8" value="Enqueue">Enqueue</label>
+            <label class="option-label"><input type="radio" name="q8" value="Push">Push</label>
+            <label class="option-label"><input type="radio" name="q8" value="Peek">Peek</label>
+
+            <div class="question">9. The "top" of a stack allows:</div>
+            <label class="option-label"><input type="radio" name="q9" value="Push/Pop">Push/Pop</label>
+            <label class="option-label"><input type="radio" name="q9" value="Enqueue">Enqueue</label>
+            <label class="option-label"><input type="radio" name="q9" value="Dequeue">Dequeue</label>
+            <label class="option-label"><input type="radio" name="q9" value="None">None</label>
+
+            <div class="question">10. Which is NOT an application of stacks?</div>
+            <label class="option-label"><input type="radio" name="q10" value="Queue processing">Queue processing</label>
+            <label class="option-label"><input type="radio" name="q10" value="Undo operations">Undo operations</label>
+            <label class="option-label"><input type="radio" name="q10" value="Expression evaluation">Expression evaluation</label>
+            <label class="option-label"><input type="radio" name="q10" value="Backtracking">Backtracking</label>
+
+            <button type="button" class="submit-btn" onclick="checkAnswers()">Submit Quiz</button>
+        </form>
+
+        <div id="score" class="score-box"></div>
+    </div>
+
+    <script>
+        const answers = {
+            q1: "LIFO",
+            q2: "FIFO",
+            q3: "Pop",
+            q4: "Enqueue",
+            q5: "Push",
+            q6: "Underflow",
+            q7: "Overflow",
+            q8: "Dequeue",
+            q9: "Push/Pop",
+            q10: "Queue processing"
+        };
+
+        function checkAnswers() {
+            let score = 0;
+
+            for (let q in answers) {
+                let selected = document.querySelector(`input[name="${q}"]:checked`);
+                let correct = answers[q];
+
+                let allOptions = document.querySelectorAll(`input[name="${q}"]`);
+                allOptions.forEach(o => o.parentElement.classList.remove("correct", "wrong"));
+
+                if (!selected) continue;
+
+                allOptions.forEach(o => {
+                    if (o.value === correct) o.parentElement.classList.add("correct");
+                });
+
+                if (selected.value !== correct) {
+                    selected.parentElement.classList.add("wrong");
+                } else {
+                    score++;
+                }
+            }
+
+            document.getElementById("score").innerHTML = `Your Score: <b>${score}/10</b>`;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Back-End Concepts Quiz</title>
+
+<style>
+/* =============================== */
+/* 🌈 GLOBAL SETTINGS & BACKGROUND */
+/* =============================== */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+
+    background: linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+    background-size: 400% 400%;
+    animation: colorfulBG 14s ease infinite;
+
+    color: #333;
+}
+
+@keyframes colorfulBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+/* =============================== */
+/* 🔵 NAVIGATION BAR               */
+/* =============================== */
+nav {
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    display: flex;
+    justify-content: center;  /* CENTERED NAV BAR */
+    gap: 35px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+nav a {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #ffe066;
+    transform: translateY(-2px);
+}
+
+/* =============================== */
+/* 🟣 QUIZ CARD                    */
+/* =============================== */
+.quiz-card {
+    background: white;
+    padding: 25px;
+    margin: 25px auto;
+    border-radius: 18px;
+    max-width: 900px;
+
+    border-left: 10px solid transparent;
+    background-image: linear-gradient(white, white),
+        linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+.quiz-card p {
+    font-size: 20px;
+    font-weight: 600;
+    color: #845ef7;
+}
+
+.option-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0;
+}
+
+.quiz-card input[type="radio"] {
+    transform: scale(1.3);
+}
+
+.correct-answer {
+    color: green !important;
+    font-weight: bold;
+}
+
+.wrong-answer {
+    color: red !important;
+    font-weight: bold;
+}
+
+.correct-circle {
+    transform: scale(1.3);
+    accent-color: green !important;
+}
+
+.wrong-circle {
+    transform: scale(1.3);
+    accent-color: red !important;
+}
+
+/* Submit button */
+button {
+    background: #845ef7;
+    color: white;
+    padding: 14px 22px;
+    font-size: 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    display: block;
+    margin: 30px auto;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #6a4fe0;
+    transform: scale(1.05);
+}
+</style>
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!--        NAVIGATION BAR     -->
+<!-- ========================= -->
+<nav>
+   <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+
+</nav>
+
+<h1>Back-End Concepts Quiz</h1>
+
+<form id="quizForm">
+
+<!-- QUESTION TEMPLATE -->
+<script>
+function q(num, question, a, b, c, d, correct) {
+    document.write(`
+        <div class="quiz-card">
+            <p>${num}. ${question}</p>
+
+            <label class="option-container">
+                <input type="radio" name="q${num}" value="a"> ${a}
+            </label>
+
+            <label class="option-container">
+                <input type="radio" name="q${num}" value="b"> ${b}
+            </label>
+
+            <label class="option-container">
+                <input type="radio" name="q${num}" value="c"> ${c}
+            </label>
+
+            <label class="option-container">
+                <input type="radio" name="q${num}" value="d"> ${d}
+            </label>
+
+            <span id="correct-q${num}" style="display:none;">${correct}</span>
+        </div>
+    `);
+}
+</script>
+
+<script>
+q(1, "What does a back-end developer mainly work on?", 
+   "User interface", 
+   "Server-side logic & databases", 
+   "Graphic design", 
+   "Device hardware", 
+   "b");
+
+q(2, "Which database is NoSQL?", 
+   "MySQL", "PostgreSQL", "MongoDB", "Oracle", "c");
+
+q(3, "Which protocol is mainly used for sending data over the internet?", 
+   "FTP", "HTTP/HTTPS", "SMTP", "SSH", "b");
+
+q(4, "Which of these is a back-end language?", 
+   "HTML", "CSS", "JavaScript", "Python", "d");
+
+q(5, "Node.js is built on which engine?", 
+   "Java Engine", "V8 Engine", "SpiderMonkey", "Opera Engine", "b");
+
+q(6, "Which is used to secure API communication?", 
+   "HTTPS", "HTTP", "FTP", "DNS", "a");
+
+q(7, "What does CRUD stand for?", 
+   "Create, Remove, Upload, Download", 
+   "Create, Read, Update, Delete", 
+   "Copy, Reset, Undo, Delete", 
+   "None", "b");
+
+q(8, "Which tool is used for version control?", 
+   "Docker", "Git", "Postman", "VS Code", "b");
+
+q(9, "What is an API?", 
+   "A database", "A server", "A way for apps to communicate", "A website", "c");
+
+q(10, "Which database is relational?", 
+   "MongoDB", "Firebase", "MySQL", "Cassandra", "c");
+</script>
+
+<button type="button" onclick="checkQuiz()">Submit Quiz</button>
+
+</form>
+
+<script>
+function checkQuiz() {
+    for (let i = 1; i <= 10; i++) {
+        let correct = document.getElementById(`correct-q${i}`).innerText;
+        let options = document.getElementsByName(`q${i}`);
+
+        options.forEach(opt => {
+            let label = opt.parentElement;
+
+            if (opt.value === correct) {
+                label.style.color = "green";
+                opt.classList.add("correct-circle");
+            }
+
+            if (opt.checked && opt.value !== correct) {
+                label.style.color = "red";
+                opt.classList.add("wrong-circle");
+            }
+        });
+    }
+
+    alert("Quiz Submitted!");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algorithms Beginner Quiz</title>
+
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* QUIZ CARD FIXES */
+.quiz-card {
+    background: white;
+    padding: 25px;
+    margin: 25px auto;
+    border-radius: 18px;
+    max-width: 900px;
+    border-left: 10px solid transparent;
+    background-image: linear-gradient(white, white),
+        linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+.quiz-card h2 {
+    color: #845ef7;
+}
+
+/************ FIX RADIO ALIGNMENT (IDENTICAL TO YOUR WORKING QUIZZES) ***********/
+.option {
+    display: flex;
+    align-items: center !important;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.option span {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.2 !important;
+}
+
+.correct-answer {
+    color: green;
+    font-weight: bold;
+}
+
+.wrong-answer {
+    color: red;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVIGATION BAR (same as your site) -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+</nav>
+
+<div class="quiz-card">
+    <h1 style="text-align:center; color:#845ef7;">Algorithms Beginner Quiz</h1>
+
+    <form id="quizForm">
+
+        <!-- Q1 -->
+        <div class="question">
+            <p>1. What is an algorithm?</p>
+            <label class="option"><input type="radio" name="q1" value="a"> <span>A step-by-step problem solving method</span></label>
+            <label class="option"><input type="radio" name="q1" value="b"> <span>A computer hardware part</span></label>
+            <label class="option"><input type="radio" name="q1" value="c"> <span>A type of variable</span></label>
+            <label class="option"><input type="radio" name="q1" value="d"> <span>A storage unit</span></label>
+        </div>
+
+        <!-- Q2 -->
+        <div class="question">
+            <p>2. What is time complexity?</p>
+            <label class="option"><input type="radio" name="q2" value="a"><span>Memory used by a program</span></label>
+            <label class="option"><input type="radio" name="q2" value="b"><span>Steps an algorithm takes to run</span></label>
+            <label class="option"><input type="radio" name="q2" value="c"><span>Lines of code</span></label>
+            <label class="option"><input type="radio" name="q2" value="d"><span>The accuracy of output</span></label>
+        </div>
+
+        <!-- Q3 -->
+        <div class="question">
+            <p>3. What does Big O notation describe?</p>
+            <label class="option"><input type="radio" name="q3" value="a"><span>The speed of typing</span></label>
+            <label class="option"><input type="radio" name="q3" value="b"><span>The performance of an algorithm</span></label>
+            <label class="option"><input type="radio" name="q3" value="c"><span>The size of code files</span></label>
+            <label class="option"><input type="radio" name="q3" value="d"><span>The amount of storage needed</span></label>
+        </div>
+
+        <!-- Q4 -->
+        <div class="question">
+            <p>4. Which algorithm is used for searching?</p>
+            <label class="option"><input type="radio" name="q4" value="a"><span>Bubble Sort</span></label>
+            <label class="option"><input type="radio" name="q4" value="b"><span>Binary Search</span></label>
+            <label class="option"><input type="radio" name="q4" value="c"><span>Merge Sort</span></label>
+            <label class="option"><input type="radio" name="q4" value="d"><span>Heapify</span></label>
+        </div>
+
+        <!-- Q5 -->
+        <div class="question">
+            <p>5. Which sort algorithm compares adjacent elements?</p>
+            <label class="option"><input type="radio" name="q5" value="a"><span>Merge Sort</span></label>
+            <label class="option"><input type="radio" name="q5" value="b"><span>Quick Sort</span></label>
+            <label class="option"><input type="radio" name="q5" value="c"><span>Bubble Sort</span></label>
+            <label class="option"><input type="radio" name="q5" value="d"><span>Heap Sort</span></label>
+        </div>
+
+        <!-- Q6 -->
+        <div class="question">
+            <p>6. Which data structure does DFS use?</p>
+            <label class="option"><input type="radio" name="q6" value="a"><span>Queue</span></label>
+            <label class="option"><input type="radio" name="q6" value="b"><span>Stack</span></label>
+            <label class="option"><input type="radio" name="q6" value="c"><span>Array</span></label>
+            <label class="option"><input type="radio" name="q6" value="d"><span>Tree</span></label>
+        </div>
+
+        <!-- Q7 -->
+        <div class="question">
+            <p>7. Which searching algorithm works on sorted data?</p>
+            <label class="option"><input type="radio" name="q7" value="a"><span>Linear Search</span></label>
+            <label class="option"><input type="radio" name="q7" value="b"><span>Binary Search</span></label>
+            <label class="option"><input type="radio" name="q7" value="c"><span>DFS</span></label>
+            <label class="option"><input type="radio" name="q7" value="d"><span>BFS</span></label>
+        </div>
+
+        <!-- Q8 -->
+        <div class="question">
+            <p>8. Which algorithm uses divide and conquer?</p>
+            <label class="option"><input type="radio" name="q8" value="a"><span>Bubble Sort</span></label>
+            <label class="option"><input type="radio" name="q8" value="b"><span>Merge Sort</span></label>
+            <label class="option"><input type="radio" name="q8" value="c"><span>Linear Search</span></label>
+            <label class="option"><input type="radio" name="q8" value="d"><span>BFS</span></label>
+        </div>
+
+        <!-- Q9 -->
+        <div class="question">
+            <p>9. What does BFS stand for?</p>
+            <label class="option"><input type="radio" name="q9" value="a"><span>Binary First Sorting</span></label>
+            <label class="option"><input type="radio" name="q9" value="b"><span>Best Fast Search</span></label>
+            <label class="option"><input type="radio" name="q9" value="c"><span>Breadth First Search</span></label>
+            <label class="option"><input type="radio" name="q9" value="d"><span>Balanced Function Sorting</span></label>
+        </div>
+
+        <!-- Q10 -->
+        <div class="question">
+            <p>10. Which is the fastest average-case sorting algorithm?</p>
+            <label class="option"><input type="radio" name="q10" value="a"><span>Bubble Sort</span></label>
+            <label class="option"><input type="radio" name="q10" value="b"><span>Insertion Sort</span></label>
+            <label class="option"><input type="radio" name="q10" value="c"><span>Quick Sort</span></label>
+            <label class="option"><input type="radio" name="q10" value="d"><span>Selection Sort</span></label>
+        </div>
+
+        <br>
+        <button type="button" onclick="checkQuiz()" style="
+            padding: 15px 30px;
+            background:#845ef7; 
+            color:white; 
+            font-size:18px; 
+            border:none;
+            border-radius:12px;
+            cursor:pointer;
+        ">Submit Quiz</button>
+    </form>
+</div>
+
+<script>
+const answers = {
+    q1: "a",
+    q2: "b",
+    q3: "b",
+    q4: "b",
+    q5: "c",
+    q6: "b",
+    q7: "b",
+    q8: "b",
+    q9: "c",
+    q10: "c"
+};
+
+function checkQuiz() {
+    Object.keys(answers).forEach(q => {
+        let selected = document.querySelector(`input[name="${q}"]:checked`);
+        let correctOption = document.querySelector(`input[name="${q}"][value="${answers[q]}"]`);
+
+        // Clear previous colors
+        document.querySelectorAll(`input[name="${q}"]`).forEach(opt => {
+            opt.parentElement.classList.remove("correct-answer", "wrong-answer");
+        });
+
+        // Mark correct
+        correctOption.parentElement.classList.add("correct-answer");
+
+        // Mark wrong if user selected incorrect
+        if (selected && selected.value !== answers[q]) {
+            selected.parentElement.classList.add("wrong-answer");
+        }
+    });
+}
+</script>
+
+</body>
+</html>

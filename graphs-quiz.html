@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Graphs Beginner Quiz</title>
+
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+            background-size: 400% 400%;
+            animation: colorfulBG 14s ease infinite;
+            color: #333;
+        }
+
+        @keyframes colorfulBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        nav {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+        }
+
+        nav a {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            color: #ffe066;
+        }
+
+        h1 {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            font-size: 45px;
+        }
+
+        .quiz-card {
+            background: white;
+            padding: 25px;
+            margin: 35px auto;
+            border-radius: 18px;
+            max-width: 900px;
+
+            border-left: 10px solid transparent;
+            background-image: linear-gradient(white, white),
+                linear-gradient(135deg, #ff6bcb, #845ef7, #4dabf7, #51cf66);
+            background-origin: border-box;
+            background-clip: padding-box, border-box;
+
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+        }
+
+        .quiz-card p {
+            font-size: 20px;
+            font-weight: 600;
+            color: #845ef7;
+        }
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 0;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        input[type="radio"] {
+            transform: scale(1.2);
+            margin: 0;
+        }
+
+        .correct {
+            color: green;
+            font-weight: bold;
+        }
+
+        .wrong {
+            color: red;
+            font-weight: bold;
+        }
+
+        .correct-circle {
+            height: 13px;
+            width: 13px;
+            border-radius: 50%;
+            background: green;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        .wrong-circle {
+            height: 13px;
+            width: 13px;
+            border-radius: 50%;
+            background: red;
+            display: inline-block;
+            margin-left: 10px;
+        }
+
+        #scoreBox {
+            text-align: center;
+            margin: 25px;
+            font-size: 25px;
+            font-weight: bold;
+            color: white;
+        }
+
+        #submitBtn {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 25px;
+            font-size: 20px;
+            border: none;
+            background: #ffe066;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navigation Bar -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+</nav>
+
+<h1>Graphs Beginner Quiz</h1>
+
+<form id="quizForm">
+
+<!-- QUESTIONS BEGIN -->
+
+<div class="quiz-card">
+    <p>1. What is a graph in Data Structures?</p>
+    <label><input type="radio" name="q1" value="a"> A collection of nodes connected by edges</label>
+    <label><input type="radio" name="q1" value="b"> A linear data structure</label>
+    <label><input type="radio" name="q1" value="c"> A type of queue</label>
+    <label><input type="radio" name="q1" value="d"> A type of array</label>
+</div>
+
+<div class="quiz-card">
+    <p>2. What is a cycle?</p>
+    <label><input type="radio" name="q2" value="a"> A path that ends at a different node</label>
+    <label><input type="radio" name="q2" value="b"> A path where all edges are removed</label>
+    <label><input type="radio" name="q2" value="c"> A path that begins and ends at the same node</label>
+    <label><input type="radio" name="q2" value="d"> A disconnected graph</label>
+</div>
+
+<div class="quiz-card">
+    <p>3. BFS uses which data structure?</p>
+    <label><input type="radio" name="q3" value="a"> Stack</label>
+    <label><input type="radio" name="q3" value="b"> Queue</label>
+    <label><input type="radio" name="q3" value="c"> Linked List</label>
+    <label><input type="radio" name="q3" value="d"> Tree</label>
+</div>
+
+<div class="quiz-card">
+    <p>4. DFS uses which data structure?</p>
+    <label><input type="radio" name="q4" value="a"> Queue</label>
+    <label><input type="radio" name="q4" value="b"> Stack</label>
+    <label><input type="radio" name="q4" value="c"> Hash table</label>
+    <label><input type="radio" name="q4" value="d"> Array</label>
+</div>
+
+<div class="quiz-card">
+    <p>5. A graph with all vertices connected to each other is called:</p>
+    <label><input type="radio" name="q5" value="a"> Bipartite Graph</label>
+    <label><input type="radio" name="q5" value="b"> Directed Graph</label>
+    <label><input type="radio" name="q5" value="c"> Complete Graph</label>
+    <label><input type="radio" name="q5" value="d"> Empty Graph</label>
+</div>
+
+<div class="quiz-card">
+    <p>6. An edge that has a direction is called:</p>
+    <label><input type="radio" name="q6" value="a"> Undirected edge</label>
+    <label><input type="radio" name="q6" value="b"> Directed edge</label>
+    <label><input type="radio" name="q6" value="c"> Weighted edge</label>
+    <label><input type="radio" name="q6" value="d"> Invalid edge</label>
+</div>
+
+<div class="quiz-card">
+    <p>7. What is the time complexity of BFS?</p>
+    <label><input type="radio" name="q7" value="a"> O(V + E)</label>
+    <label><input type="radio" name="q7" value="b"> O(V × E)</label>
+    <label><input type="radio" name="q7" value="c"> O(V²)</label>
+    <label><input type="radio" name="q7" value="d"> O(1)</label>
+</div>
+
+<div class="quiz-card">
+    <p>8. Which algorithm detects cycles in directed graphs?</p>
+    <label><input type="radio" name="q8" value="a"> Kruskal’s</label>
+    <label><input type="radio" name="q8" value="b"> DFS</label>
+    <label><input type="radio" name="q8" value="c"> Prim’s</label>
+    <label><input type="radio" name="q8" value="d"> Dijkstra’s</label>
+</div>
+
+<div class="quiz-card">
+    <p>9. A graph with no cycles is called:</p>
+    <label><input type="radio" name="q9" value="a"> DAG</label>
+    <label><input type="radio" name="q9" value="b"> MST</label>
+    <label><input type="radio" name="q9" value="c"> BFS Graph</label>
+    <label><input type="radio" name="q9" value="d"> Complete Graph</label>
+</div>
+
+<div class="quiz-card">
+    <p>10. What does adjacency list represent?</p>
+    <label><input type="radio" name="q10" value="a"> Matrix form of edges</label>
+    <label><input type="radio" name="q10" value="b"> A list of edges only</label>
+    <label><input type="radio" name="q10" value="c"> List of all neighbors of each vertex</label>
+    <label><input type="radio" name="q10" value="d"> Weight table</label>
+</div>
+
+</form>
+
+<button id="submitBtn" onclick="checkQuiz()">Submit</button>
+<div id="scoreBox"></div>
+
+<script>
+const answers = {
+    q1: "a",
+    q2: "c",
+    q3: "b",
+    q4: "b",
+    q5: "c",
+    q6: "b",
+    q7: "a",
+    q8: "b",
+    q9: "a",
+    q10: "c"
+};
+
+function checkQuiz() {
+    let score = 0;
+
+    for (let q in answers) {
+        const correct = answers[q];
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+
+        const labels = document.querySelectorAll(`input[name="${q}"]`);
+        labels.forEach(radio => {
+            const lbl = radio.parentElement;
+            lbl.classList.remove("correct", "wrong");
+            const oldCircles = lbl.querySelectorAll(".correct-circle, .wrong-circle");
+            oldCircles.forEach(c => c.remove());
+        });
+
+        if (!selected) continue;
+
+        if (selected.value === correct) {
+            score++;
+            selected.parentElement.classList.add("correct");
+        } else {
+            selected.parentElement.classList.add("wrong");
+            selected.parentElement.insertAdjacentHTML("beforeend",
+                `<span class='wrong-circle'></span>`);
+
+            const correctOption = document.querySelector(`input[name="${q}"][value="${correct}"]`);
+            correctOption.parentElement.classList.add("correct");
+            correctOption.parentElement.insertAdjacentHTML("beforeend",
+                `<span class='correct-circle'></span>`);
+        }
+    }
+
+    document.getElementById("scoreBox").textContent =
+        `Your Score: ${score} / 10`;
+}
+</script>
+
+</body>
+</html>

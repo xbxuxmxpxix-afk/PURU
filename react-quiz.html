@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>React.js Quiz</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0a0f24;
+        color: white;
+    }
+
+    nav {
+        background: #080d20;
+        padding: 15px;
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        border-bottom: 2px solid #1a2250;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 8px 14px;
+        border-radius: 6px;
+        transition: 0.3s;
+    }
+
+    nav a:hover {
+        background: #1a2250;
+    }
+
+    h1 {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .quiz-container {
+        width: 70%;
+        margin: auto;
+        margin-top: 25px;
+        background: #0f1837;
+        padding: 20px;
+        border-radius: 15px;
+        border: 2px solid #1f2a52;
+    }
+
+    .question {
+        margin-bottom: 28px;
+    }
+
+    label {
+        display: block;
+        margin: 6px 0;
+        padding: 10px;
+        background: #111b3c;
+        border-radius: 10px;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+
+    input[type="radio"] {
+        margin-right: 10px;
+        transform: scale(1.2);
+    }
+
+    /* Correct Answer Green */
+    .correct {
+        color: #00ff80 !important;
+        border-color: #00ff80 !important;
+        position: relative;
+    }
+
+    .correct::after {
+        content: "●";
+        color: #00ff80;
+        font-size: 22px;
+        position: absolute;
+        right: 10px;
+        top: 8px;
+    }
+
+    /* Wrong Answer Red */
+    .wrong {
+        color: #ff4d4d !important;
+        border-color: #ff4d4d !important;
+        position: relative;
+    }
+
+    .wrong::after {
+        content: "✖";
+        color: #ff4d4d;
+        font-size: 22px;
+        position: absolute;
+        right: 10px;
+        top: 8px;
+    }
+
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 12px 25px;
+        background: #1a2250;
+        color: white;
+        font-size: 20px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background: #273064;
+    }
+
+    #scoreBox {
+        text-align: center;
+        font-size: 22px;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+</nav>
+
+<h1>React.js Advanced Concepts Quiz</h1>
+
+<div class="quiz-container">
+
+    <!-- 1 -->
+    <div class="question">
+        <p>1. Which hook is used to manage component state?</p>
+        <label><input type="radio" name="q1" value="A"> useCallback</label>
+        <label><input type="radio" name="q1" value="B"> useEffect</label>
+        <label><input type="radio" name="q1" value="C"> useState</label>
+        <label><input type="radio" name="q1" value="D"> useReducer</label>
+    </div>
+
+    <!-- 2 -->
+    <div class="question">
+        <p>2. What does the useEffect hook primarily handle?</p>
+        <label><input type="radio" name="q2" value="A"> State updates</label>
+        <label><input type="radio" name="q2" value="B"> Side effects</label>
+        <label><input type="radio" name="q2" value="C"> Styling</label>
+        <label><input type="radio" name="q2" value="D"> DOM queries</label>
+    </div>
+
+    <!-- 3 -->
+    <div class="question">
+        <p>3. React uses which mechanism to update UI efficiently?</p>
+        <label><input type="radio" name="q3" value="A"> Virtual DOM</label>
+        <label><input type="radio" name="q3" value="B"> Shadow DOM</label>
+        <label><input type="radio" name="q3" value="C"> UI Engine</label>
+        <label><input type="radio" name="q3" value="D"> Fiber DOM</label>
+    </div>
+
+    <!-- 4 -->
+    <div class="question">
+        <p>4. Which hook is used for memoizing values?</p>
+        <label><input type="radio" name="q4" value="A"> useMemo</label>
+        <label><input type="radio" name="q4" value="B"> useState</label>
+        <label><input type="radio" name="q4" value="C"> useEffect</label>
+        <label><input type="radio" name="q4" value="D"> useRef</label>
+    </div>
+
+    <!-- 5 -->
+    <div class="question">
+        <p>5. What is JSX?</p>
+        <label><input type="radio" name="q5" value="A"> A JavaScript XML-like syntax</label>
+        <label><input type="radio" name="q5" value="B"> A CSS generator</label>
+        <label><input type="radio" name="q5" value="C"> A markup language</label>
+        <label><input type="radio" name="q5" value="D"> A module builder</label>
+    </div>
+
+    <!-- 6 -->
+    <div class="question">
+        <p>6. What does useRef mainly store?</p>
+        <label><input type="radio" name="q6" value="A"> Previous props</label>
+        <label><input type="radio" name="q6" value="B"> DOM references / persistent values</label>
+        <label><input type="radio" name="q6" value="C"> Memoized state</label>
+        <label><input type="radio" name="q6" value="D"> UI templates</label>
+    </div>
+
+    <!-- 7 -->
+    <div class="question">
+        <p>7. React components must return ____?</p>
+        <label><input type="radio" name="q7" value="A"> A number</label>
+        <label><input type="radio" name="q7" value="B"> A JSX element</label>
+        <label><input type="radio" name="q7" value="C"> A class</label>
+        <label><input type="radio" name="q7" value="D"> HTML only</label>
+    </div>
+
+    <!-- 8 -->
+    <div class="question">
+        <p>8. What is the purpose of useCallback?</p>
+        <label><input type="radio" name="q8" value="A"> Memoizing functions</label>
+        <label><input type="radio" name="q8" value="B"> Managing events</label>
+        <label><input type="radio" name="q8" value="C"> Fetching data</label>
+        <label><input type="radio" name="q8" value="D"> Updating DOM</label>
+    </div>
+
+    <!-- 9 -->
+    <div class="question">
+        <p>9. Which of these is TRUE about props?</p>
+        <label><input type="radio" name="q9" value="A"> Props are immutable</label>
+        <label><input type="radio" name="q9" value="B"> Props can be updated directly</label>
+        <label><input type="radio" name="q9" value="C"> Props store internal state</label>
+        <label><input type="radio" name="q9" value="D"> Props control DOM rendering</label>
+    </div>
+
+    <!-- 10 -->
+    <div class="question">
+        <p>10. What does React.Fragment help with?</p>
+        <label><input type="radio" name="q10" value="A"> Styling components</label>
+        <label><input type="radio" name="q10" value="B"> Returning multiple elements without extra divs</label>
+        <label><input type="radio" name="q10" value="C"> Improving performance</label>
+        <label><input type="radio" name="q10" value="D"> Creating portals</label>
+    </div>
+
+    <button onclick="submitQuiz()">Submit</button>
+
+    <div id="scoreBox"></div>
+
+</div>
+
+<script>
+function submitQuiz() {
+    const answers = {
+        q1: "C",
+        q2: "B",
+        q3: "A",
+        q4: "A",
+        q5: "A",
+        q6: "B",
+        q7: "B",
+        q8: "A",
+        q9: "A",
+        q10: "B"
+    };
+
+    let score = 0;
+
+    for (let q in answers) {
+        const selected = document.querySelector(`input[name="${q}"]:checked`);
+        const correctValue = answers[q];
+
+        const options = document.querySelectorAll(`input[name="${q}"]`);
+
+        options.forEach(opt => {
+            let label = opt.parentElement;
+            label.classList.remove("correct", "wrong");
+        });
+
+        if (selected) {
+            if (selected.value === correctValue) {
+                selected.parentElement.classList.add("correct");
+                score++;
+            } else {
+                selected.parentElement.classList.add("wrong");
+            }
+        }
+
+        const correctOption = document.querySelector(`input[name="${q}"][value="${correctValue}"]`);
+        correctOption.parentElement.classList.add("correct");
+    }
+
+    document.getElementById("scoreBox").innerHTML = "Your Score: " + score + "/10";
+}
+</script>
+
+</body>
+</html>

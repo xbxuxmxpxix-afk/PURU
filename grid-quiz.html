@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS Grid Mastery Quiz</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+/* PAGE BACKGROUND */
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #31527b, #403f72);
+    color: white;
+}
+
+/* NAVIGATION BAR */
+nav {
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+nav a {
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #ffe066;
+    transform: translateY(-2px);
+}
+
+/* QUIZ CARD */
+.quiz-card {
+    background: white;
+    color: black;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 35px;
+    border-radius: 18px;
+}
+
+/* Question block */
+.question {
+    margin-bottom: 25px;
+    font-size: 18px;
+}
+
+/* Option layout FIXED */
+.option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 8px 0;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+/* hide default radio */
+.option input {
+    display: none;
+}
+
+/* custom circle */
+.radio-circle {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #999;
+    border-radius: 50%;
+    flex: 0 0 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.option input:checked + .radio-circle::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #845ef7;
+    border-radius: 50%;
+}
+
+/* text */
+.option-text {
+    flex: 1;
+}
+
+/* Correct answer green */
+.correct .radio-circle {
+    border-color: #51cf66 !important;
+}
+.correct .radio-circle::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background: #51cf66 !important;
+}
+.correct .option-text {
+    color: #51cf66 !important;
+    font-weight: 600;
+}
+
+/* Wrong answer red */
+.wrong .radio-circle {
+    border-color: #ff6b6b !important;
+}
+.wrong .option-text {
+    color: #ff6b6b !important;
+    font-weight: 600;
+}
+
+/* Submit button */
+button {
+    display: block;
+    margin: 30px auto 0 auto;
+    padding: 12px 28px;
+    background: #845ef7;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+}
+button:hover {
+    transform: scale(1.03);
+}
+
+/* Score Box */
+#scoreBox {
+    margin-top: 20px;
+    padding: 18px;
+    background: #eef0ff;
+    border-left: 6px solid #845ef7;
+    border-radius: 12px;
+    display: none;
+    font-size: 22px;
+    text-align: center;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="quiz.html">Quizzes</a>
+    <a href="about.html">About</a>
+    <a href="admin-login.html">Admin</a>
+</nav>
+
+<h1 style="text-align:center; margin-top:30px;">⬜ CSS Grid Mastery Quiz</h1>
+
+<div class="quiz-card">
+
+<form id="quizForm">
+<div id="questions"></div>
+
+<button type="button" onclick="submitQuiz()">Submit</button>
+
+<div id="scoreBox"></div>
+</form>
+
+</div>
+
+<script>
+const questions = [
+    {
+        q: "1. What does display: grid do?",
+        a: "B",
+        options: {
+            A: "Creates a flex container",
+            B: "Turns the element into a grid container",
+            C: "Centers all elements",
+            D: "Creates inline layout"
+        }
+    },
+    {
+        q: "2. Which property defines the number of columns?",
+        a: "A",
+        options: {
+            A: "grid-template-columns",
+            B: "grid-rows",
+            C: "auto-flow",
+            D: "column-gap"
+        }
+    },
+    {
+        q: "3. What does fr unit represent?",
+        a: "D",
+        options: {
+            A: "Fixed ratio",
+            B: "Full-responsive",
+            C: "Fraction of width only",
+            D: "Fraction of available space"
+        }
+    },
+    {
+        q: "4. Which property sets spacing between rows?",
+        a: "C",
+        options: {
+            A: "column-gap",
+            B: "grid-gap",
+            C: "row-gap",
+            D: "grid-spacing"
+        }
+    },
+    {
+        q: "5. Which shorthand sets both row and column gaps?",
+        a: "A",
+        options: {
+            A: "gap",
+            B: "grid-gap",
+            C: "auto-gap",
+            D: "spacing"
+        }
+    },
+    {
+        q: "6. What does grid-template-areas do?",
+        a: "B",
+        options: {
+            A: "Sets column width",
+            B: "Defines named layout areas",
+            C: "Controls item alignment",
+            D: "Sets the grid flow direction"
+        }
+    },
+    {
+        q: "7. Which property positions a grid item?",
+        a: "C",
+        options: {
+            A: "position",
+            B: "align-content",
+            C: "grid-area",
+            D: "z-index"
+        }
+    },
+    {
+        q: "8. What does repeat() function do?",
+        a: "A",
+        options: {
+            A: "Repeats track sizes easily",
+            B: "Repeats animations",
+            C: "Repeats flex values",
+            D: "Repeats gaps"
+        }
+    },
+    {
+        q: "9. Which value lets the grid auto-fill columns?",
+        a: "D",
+        options: {
+            A: "min-content",
+            B: "auto-expand",
+            C: "grid-flow",
+            D: "auto-fill"
+        }
+    },
+    {
+        q: "10. What does minmax() do?",
+        a: "C",
+        options: {
+            A: "Sets auto width",
+            B: "Sets both padding & margin",
+            C: "Defines min and max track size",
+            D: "Defines column alignment"
+        }
+    }
+];
+
+/* Render Questions */
+const container = document.getElementById("questions");
+questions.forEach((item, i) => {
+    let html = `<div class="question" id="q${i}"><p>${item.q}</p>`;
+    for (const key in item.options) {
+        html += `
+        <label class="option">
+            <input type="radio" name="q${i}" value="${key}">
+            <div class="radio-circle"></div>
+            <span class="option-text">${item.options[key]}</span>
+        </label>`;
+    }
+    html += "</div>";
+    container.innerHTML += html;
+});
+
+/* Submit Logic */
+function submitQuiz() {
+    let score = 0;
+
+    questions.forEach((item, i) => {
+        const selected = document.querySelector(`input[name="q${i}"]:checked`);
+        const correct = item.a;
+        const opts = document.querySelectorAll(`#q${i} .option`);
+
+        opts.forEach(opt => opt.classList.remove("correct","wrong"));
+
+        opts.forEach(opt => {
+            const val = opt.querySelector("input").value;
+
+            if (selected && val === selected.value && val !== correct)
+                opt.classList.add("wrong");
+
+            if (val === correct)
+                opt.classList.add("correct");
+        });
+
+        if (selected && selected.value === correct) score++;
+    });
+
+    const box = document.getElementById("scoreBox");
+    box.style.display = "block";
+    box.innerHTML = `Your Score: ${score} / ${questions.length}`;
+}
+</script>
+
+</body>
+</html>
